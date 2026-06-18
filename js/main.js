@@ -1,0 +1,266 @@
+(function () {
+  'use strict';
+
+  const $ = (sel, ctx = document) => ctx.querySelector(sel);
+  const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
+
+  /* ── Loader (home only) ── */
+  const loader = $('#loader');
+  if (loader) {
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        loader.classList.add('hidden');
+        document.body.classList.add('loaded');
+      }, 1400);
+    });
+  } else {
+    document.body.classList.add('loaded');
+  }
+
+  /* ── Custom cursor ── */
+  const dot = $('#cursor-dot');
+  const ring = $('#cursor-ring');
+  let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+
+  if (dot && ring && window.matchMedia('(pointer: fine)').matches) {
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      dot.style.left = mouseX + 'px';
+      dot.style.top = mouseY + 'px';
+    });
+
+    function animateRing() {
+      ringX += (mouseX - ringX) * 0.15;
+      ringY += (mouseY - ringY) * 0.15;
+      ring.style.left = ringX + 'px';
+      ring.style.top = ringY + 'px';
+      requestAnimationFrame(animateRing);
+    }
+    animateRing();
+
+    $$('a, button, [data-tilt], .approach-card, .exp-card, .teaser-card, .service-card, .immersive-thumbs img, .hero-gallery-main, .hero-gallery-item').forEach((el) => {
+      el.addEventListener('mouseenter', () => ring.classList.add('hover'));
+      el.addEventListener('mouseleave', () => ring.classList.remove('hover'));
+    });
+  }
+
+  /* ── Scroll progress ── */
+  const progress = $('#scroll-progress');
+  if (progress) {
+    window.addEventListener('scroll', () => {
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.width = (window.scrollY / h) * 100 + '%';
+    }, { passive: true });
+  }
+
+  /* ── Nav ── */
+  const nav = $('#nav');
+  const navLinks = $('#nav-links');
+  const navToggle = $('#nav-toggle');
+  const currentPage = document.body.dataset.page;
+
+  if (nav) {
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+  }
+
+  if (navToggle && navLinks) {
+    navToggle.addEventListener('click', () => {
+      navToggle.classList.toggle('active');
+      navLinks.classList.toggle('open');
+    });
+  }
+
+  $$('[data-page]').forEach((link) => {
+    if (link.dataset.page === currentPage) {
+      link.classList.add('active');
+    }
+    link.addEventListener('click', () => {
+      navLinks?.classList.remove('open');
+      navToggle?.classList.remove('active');
+    });
+  });
+
+  /* ── Smooth scroll buttons ── */
+  $$('[data-scroll]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const target = $(btn.dataset.scroll);
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  /* ── Reveal on scroll ── */
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+  $$('.reveal').forEach((el) => revealObserver.observe(el));
+
+  /* ── Counter animation ── */
+  const statObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      const target = parseInt(el.dataset.count, 10);
+      const numEl = $('.stat-num', el);
+      let current = 0;
+      const step = () => {
+        current += Math.ceil(target / 30);
+        if (current >= target) {
+          numEl.textContent = target;
+          return;
+        }
+        numEl.textContent = current;
+        requestAnimationFrame(step);
+      };
+      step();
+      statObserver.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+
+  $$('.stat').forEach((s) => statObserver.observe(s));
+
+  /* ── Hero parallax ── */
+  const heroImg = $('#hero-parallax');
+  if (heroImg) {
+    document.addEventListener('mousemove', (e) => {
+      const x = (e.clientX / window.innerWidth - 0.5) * 20;
+      const y = (e.clientY / window.innerHeight - 0.5) * 20;
+      heroImg.style.transform = `scale(1.1) translate(${x}px, ${y}px)`;
+    });
+  }
+
+  /* ── Card tilt ── */
+  $$('[data-tilt]').forEach((card) => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      card.style.transform = `perspective(800px) rotateY(${x * 12}deg) rotateX(${-y * 12}deg) translateY(-4px)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+
+  /* ── Horizontal drag scroll ── */
+  const hScroll = $('#h-scroll');
+  const hTrack = $('#h-scroll-track');
+  if (hScroll && hTrack) {
+    let isDown = false, startX, scrollLeft;
+
+    hScroll.addEventListener('mousedown', (e) => {
+      isDown = true;
+      hScroll.classList.add('dragging');
+      startX = e.pageX - hScroll.offsetLeft;
+      scrollLeft = hScroll.scrollLeft;
+    });
+
+    hScroll.addEventListener('mouseleave', () => { isDown = false; hScroll.classList.remove('dragging'); });
+    hScroll.addEventListener('mouseup', () => { isDown = false; hScroll.classList.remove('dragging'); });
+
+    hScroll.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - hScroll.offsetLeft;
+      hScroll.scrollLeft = scrollLeft - (x - startX) * 1.5;
+    });
+
+    let touchStartX = 0, touchScrollLeft = 0;
+    hScroll.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].pageX;
+      touchScrollLeft = hScroll.scrollLeft;
+    }, { passive: true });
+
+    hScroll.addEventListener('touchmove', (e) => {
+      const x = e.touches[0].pageX;
+      hScroll.scrollLeft = touchScrollLeft - (x - touchStartX);
+    }, { passive: true });
+  }
+
+  /* ── Journey timeline ── */
+  const journeySteps = $$('.j-step');
+  const journeyFill = $('#journey-fill');
+
+  if (journeySteps.length) {
+    const journeyObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        entry.target.classList.toggle('active', entry.isIntersecting);
+      });
+      const active = journeySteps.filter((s) => s.classList.contains('active')).length;
+      if (journeyFill) {
+        journeyFill.style.height = (active / journeySteps.length) * 100 + '%';
+      }
+    }, { threshold: 0.6 });
+
+    journeySteps.forEach((step) => journeyObserver.observe(step));
+  }
+
+  /* ── Approach flip cards ── */
+  $$('[data-approach]').forEach((card) => {
+    const toggle = () => {
+      $$('[data-approach]').forEach((c) => {
+        if (c !== card) c.classList.remove('flipped');
+      });
+      card.classList.toggle('flipped');
+    };
+    card.addEventListener('click', toggle);
+    $('.approach-more', card)?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggle();
+    });
+  });
+
+  /* ── Ticino parallax + thumb swap ── */
+  const ticinoBg = $('#ticino-parallax');
+  const thumbs = $$('.immersive-thumbs img');
+
+  if (ticinoBg) {
+    window.addEventListener('scroll', () => {
+      const section = $('#ticino');
+      if (!section) return;
+      const rect = section.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        const offset = (rect.top / window.innerHeight) * 60;
+        ticinoBg.style.transform = `translateY(${offset}px) scale(1.05)`;
+      }
+    }, { passive: true });
+
+    thumbs.forEach((thumb) => {
+      thumb.addEventListener('click', () => {
+        const src = thumb.getAttribute('src');
+        ticinoBg.style.opacity = '0';
+        setTimeout(() => {
+          ticinoBg.src = src;
+          ticinoBg.style.opacity = '1';
+        }, 300);
+      });
+    });
+    ticinoBg.style.transition = 'opacity 0.4s ease, transform 0.15s linear';
+  }
+
+  /* ── Contact form ── */
+  const form = $('#contact-form');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const btn = $('button[type="submit"]', form);
+      const label = $('span', btn);
+      const orig = label.textContent;
+      label.textContent = 'Message sent — thank you';
+      btn.disabled = true;
+      setTimeout(() => {
+        form.reset();
+        label.textContent = orig;
+        btn.disabled = false;
+      }, 3500);
+    });
+  }
+
+})();

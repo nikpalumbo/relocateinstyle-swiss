@@ -45,6 +45,12 @@
     <section class="section section-contact">
       <div class="section-inner contact-layout">
         <div class="contact-info reveal">
+          <div class="section-label">How it works</div>
+          <ol class="contact-steps">
+            <li>Fill in the form with your details and area of interest.</li>
+            <li>Helen or Raffaella will respond personally — usually within one business day.</li>
+            <li>We arrange a confidential consultation, without obligation.</li>
+          </ol>
           <div class="contact-details">
             <a href="tel:+41763927071" class="contact-link">
               <span class="contact-link-label">Mobile</span>
@@ -71,7 +77,12 @@
             </div>
           </div>
         </div>
-        <form class="contact-form reveal" id="contact-form">
+        <form class="contact-form reveal" id="contact-form" action="https://formsubmit.co/helen@relocateinstyle.swiss" method="POST">
+          <input type="hidden" name="_subject" value="New enquiry — Relocateinstyle">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://sdw.solutions/relocateinstyle-swiss/contact.html?sent=1">
+          <p class="form-note" id="form-success" hidden>Thank you — your message has been sent. We will be in touch shortly.</p>
           <div class="form-field">
             <input type="text" id="name" name="name" required placeholder=" ">
             <label for="name">Your name</label>

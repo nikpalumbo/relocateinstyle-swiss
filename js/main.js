@@ -294,20 +294,11 @@
 
   /* ── Contact form ── */
   const form = $('#contact-form');
-  if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const btn = $('button[type="submit"]', form);
-      const label = $('span', btn);
-      const orig = label.textContent;
-      label.textContent = 'Message sent — thank you';
-      btn.disabled = true;
-      setTimeout(() => {
-        form.reset();
-        label.textContent = orig;
-        btn.disabled = false;
-      }, 3500);
-    });
+  const formSuccess = $('#form-success');
+
+  if (new URLSearchParams(window.location.search).get('sent') === '1' && formSuccess) {
+    formSuccess.hidden = false;
+    if (form) form.style.display = 'none';
   }
 
 })();

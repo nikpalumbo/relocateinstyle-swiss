@@ -1360,9 +1360,33 @@ body.loaded .hero-title .line:nth-child(2) span {
   font-weight: 400;
 }
 
-.vision-quote blockquote em { font-style: italic; color: var(--gold); }
-
 .vision-quote .body-text em { font-style: italic; color: var(--gold); }
+
+/* About page — calmer typography */
+body[data-page="about"] .section-title {
+  font-size: clamp(1.85rem, 4vw, 2.75rem);
+}
+
+body[data-page="about"] .section-title.gold {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+body[data-page="about"] .value-card h3,
+body[data-page="about"] .team-card h3 {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+body[data-page="about"] .vision-quote blockquote {
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--text-muted);
+}
 
 .vision-image {
   border-radius: var(--radius);
@@ -1817,6 +1841,52 @@ body.loaded .hero-title .line:nth-child(2) span {
   display: block;
   font-size: 15px;
   margin-bottom: 4px;
+}
+
+.contact-steps {
+  list-style: none;
+  margin: 0 0 40px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  counter-reset: step;
+}
+
+.contact-steps li {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-muted);
+  padding-left: 28px;
+  position: relative;
+}
+
+.contact-steps li::before {
+  content: counter(step);
+  counter-increment: step;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--text-dark);
+  font-size: 11px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-note {
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  border: 1px solid var(--gold);
+  border-radius: var(--radius);
+  color: var(--gold);
+  font-size: 15px;
+  line-height: 1.6;
 }
 
 .contact-person-block span {

@@ -1362,6 +1362,8 @@ body.loaded .hero-title .line:nth-child(2) span {
 
 .vision-quote blockquote em { font-style: italic; color: var(--gold); }
 
+.vision-quote .body-text em { font-style: italic; color: var(--gold); }
+
 .vision-image {
   border-radius: var(--radius);
   overflow: hidden;

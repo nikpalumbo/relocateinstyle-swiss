@@ -1659,6 +1659,35 @@ body.loaded .hero-title .line:nth-child(2) span {
   scroll-margin-top: calc(var(--nav-h) + 24px);
 }
 
+.service-partner {
+  margin: 32px 0;
+  padding: 28px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-align: center;
+}
+
+.service-partner-label {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+
+.service-partner .partner-logo {
+  max-width: 220px;
+  height: 140px;
+  margin: 0 auto 12px;
+}
+
+.service-partner-name {
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
 .vision-quote-inline {
   font-family: var(--font-serif);
   font-size: clamp(1.35rem, 3vw, 1.85rem);

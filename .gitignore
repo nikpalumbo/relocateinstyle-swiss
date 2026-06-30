@@ -1,4 +1,5 @@
 .DS_Store
+**/.DS_Store
 
 # Raw source photos — keep only processed copies in assets/images/
 /*.jpg

@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=4">
   <link rel="icon" href="assets/images/logo.png" type="image/png">
 </head>
 <body data-page="home">
@@ -30,8 +30,8 @@
       <a href="index.html" data-page="home">Home</a>
       <a href="about.html" data-page="about">About</a>
       <a href="services.html" data-page="services">Services</a>
-      <a href="ticino.html" data-page="ticino">Ticino</a>
-      <a href="approach.html" data-page="approach">Approach</a>
+      <a href="ticino.html" data-page="partners">Partners</a>
+      <a href="assets/documents/relocateinstyle_membership_flyer.pdf" target="_blank" rel="noopener noreferrer">Membership</a>
       <a href="contact.html" data-page="contact" class="nav-cta">Contact</a>
     </nav>
     <button class="nav-toggle" id="nav-toggle" aria-label="Menu"><span></span><span></span></button>
@@ -50,30 +50,20 @@
           <p class="hero-eyebrow reveal">Lugano · Ticino · Switzerland</p>
           <h1 class="hero-title reveal">
             <span class="line"><span>Relocate</span></span>
-            <span class="line"><span>with</span> <em>style</em></span>
+            <span class="line"><span>in</span> <em>style</em></span>
           </h1>
-          <p class="hero-desc reveal">A boutique relocation experience crafted for discerning families. Discreet, bespoke, and entirely yours.</p>
+          <p class="hero-desc reveal">We guide you through Switzerland with a global mindset and a local perspective. We go the extra mile!</p>
           <div class="hero-actions reveal">
             <a href="contact.html" class="btn btn-primary">Begin your journey</a>
-            <a href="about.html" class="btn btn-ghost">Explore</a>
+            <a href="#teasers" class="btn btn-ghost" data-scroll="#teasers">Explore</a>
           </div>
         </div>
         <div class="hero-visual reveal">
           <div class="hero-gallery">
-            <figure class="hero-gallery-main" data-tilt>
-              <img src="assets/images/lugano-panorama.jpg" alt="Lake Lugano, Ticino">
-              <figcaption>Lake Lugano</figcaption>
+            <figure class="hero-gallery-main">
+              <img src="assets/images/iStock-1363736068.png" alt="Elegant interior with flowers">
+              <figcaption>Life in Lugano</figcaption>
             </figure>
-            <div class="hero-gallery-row">
-              <figure class="hero-gallery-item" data-tilt>
-                <img src="assets/images/interior.jpg" alt="Your new home">
-                <figcaption>Your new home</figcaption>
-              </figure>
-              <figure class="hero-gallery-item" data-tilt>
-                <img src="assets/images/hero.jpg" alt="Life in Ticino">
-                <figcaption>Life in Ticino</figcaption>
-              </figure>
-            </div>
           </div>
         </div>
       </div>
@@ -115,17 +105,18 @@
         <h2 class="section-title reveal">Not a service.<br><em>An experience.</em></h2>
         <p class="section-lead reveal">A boutique firm in Lugano guiding private individuals and families through every dimension of life in Ticino — bespoke care, no standardised solutions.</p>
         <div class="stats-row">
-          <div class="stat reveal" data-count="10">
+          <div class="stat reveal" data-count="300" data-suffix="+">
             <span class="stat-num">0</span>
-            <span class="stat-label">Languages</span>
+            <span class="stat-label">Relocations</span>
           </div>
           <div class="stat reveal" data-count="3">
             <span class="stat-num">0</span>
-            <span class="stat-label">Levels of care</span>
+            <span class="stat-label">Levels of service</span>
+            <span class="stat-label">Real Estate · Family Office · Relocation</span>
           </div>
-          <div class="stat reveal" data-count="1">
+          <div class="stat reveal" data-count="10">
             <span class="stat-num">0</span>
-            <span class="stat-label">Trusted advisor</span>
+            <span class="stat-label">Languages</span>
           </div>
         </div>
         <div class="section-cta reveal">
@@ -135,33 +126,33 @@
     </section>
 
     <!-- TEASERS -->
-    <section class="section section-dark">
+    <section class="section section-dark" id="teasers">
       <div class="section-inner">
         <div class="teaser-grid">
-          <a href="services.html" class="teaser-card reveal" data-tilt>
-            <img src="assets/images/interior.jpg" alt="Our services">
+          <a href="services.html" class="teaser-card reveal" data-tilt data-scroll-card>
+            <img src="assets/images/interior.jpg" alt="Our services" class="teaser-card-img">
             <div class="teaser-overlay">
               <span class="teaser-label">Services</span>
               <h3>What we do</h3>
-              <p>Immigration, housing, integration & lifestyle — handled with clarity.</p>
+              <p>Relocation, Real Estate & Family Office — three pillars, one trusted advisor.</p>
               <span class="teaser-link">Explore →</span>
             </div>
           </a>
-          <a href="ticino.html" class="teaser-card reveal" data-tilt>
-            <img src="assets/images/lugano-night.jpg" alt="Ticino">
+          <a href="ticino.html" class="teaser-card reveal" data-tilt data-scroll-card>
+            <img src="assets/images/partners-entrance.png" alt="Our partners" class="teaser-card-img">
             <div class="teaser-overlay">
-              <span class="teaser-label">Destination</span>
-              <h3>Life in Ticino</h3>
-              <p>Where Mediterranean warmth meets Swiss precision.</p>
+              <span class="teaser-label">Partners</span>
+              <h3>Who we work with</h3>
+              <p>Trusted schools and specialists across Ticino — personally vetted for you.</p>
               <span class="teaser-link">Discover →</span>
             </div>
           </a>
-          <a href="approach.html" class="teaser-card reveal" data-tilt>
-            <img src="assets/images/lugano-panorama.jpg" alt="Our approach">
+          <a href="assets/documents/relocateinstyle_membership_flyer.pdf" class="teaser-card reveal" data-tilt data-scroll-card target="_blank" rel="noopener noreferrer">
+            <img src="assets/images/lugano-panorama.jpg" alt="Membership" class="teaser-card-img">
             <div class="teaser-overlay">
-              <span class="teaser-label">Approach</span>
-              <h3>Three paths</h3>
-              <p>Essential, Complete, or Prestige — tailored privately to you.</p>
+              <span class="teaser-label">Membership</span>
+              <h3>Ongoing support</h3>
+              <p>Helpdesk, resources and year-round access to your trusted advisor.</p>
               <span class="teaser-link">Learn more →</span>
             </div>
           </a>
@@ -185,13 +176,13 @@
     <nav class="footer-nav">
       <a href="about.html">About</a>
       <a href="services.html">Services</a>
-      <a href="ticino.html">Ticino</a>
-      <a href="approach.html">Approach</a>
+      <a href="ticino.html">Partners</a>
+      <a href="assets/documents/relocateinstyle_membership_flyer.pdf" target="_blank" rel="noopener noreferrer">Membership</a>
       <a href="contact.html">Contact</a>
     </nav>
     <p>© 2026 Relocateinstyle SA · Lugano, Switzerland</p>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=5"></script>
 </body>
 </html>

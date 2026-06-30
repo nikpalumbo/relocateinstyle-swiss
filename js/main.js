@@ -39,7 +39,7 @@
     }
     animateRing();
 
-    $$('a, button, [data-tilt], .approach-card, .exp-card, .teaser-card, .service-card, .immersive-thumbs img, .hero-gallery-main, .hero-gallery-item').forEach((el) => {
+    $$('a, button, [data-tilt], .approach-card, .exp-card, .teaser-card, .service-card, .immersive-thumbs img, .hero-gallery-main, .hero-gallery-item, .scroll-card').forEach((el) => {
       el.addEventListener('mouseenter', () => ring.classList.add('hover'));
       el.addEventListener('mouseleave', () => ring.classList.remove('hover'));
     });
@@ -85,9 +85,13 @@
 
   /* ── Smooth scroll buttons ── */
   $$('[data-scroll]').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const target = $(btn.dataset.scroll);
-      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    btn.addEventListener('click', (e) => {
+      const sel = btn.getAttribute('data-scroll') || btn.dataset.scroll;
+      const target = sel ? $(sel) : null;
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
     });
   });
 
@@ -108,15 +112,16 @@
       if (!entry.isIntersecting) return;
       const el = entry.target;
       const target = parseInt(el.dataset.count, 10);
+      const suffix = el.dataset.suffix || '';
       const numEl = $('.stat-num', el);
       let current = 0;
       const step = () => {
         current += Math.ceil(target / 30);
         if (current >= target) {
-          numEl.textContent = target;
+          numEl.textContent = target + suffix;
           return;
         }
-        numEl.textContent = current;
+        numEl.textContent = current + suffix;
         requestAnimationFrame(step);
       };
       step();
@@ -126,14 +131,56 @@
 
   $$('.stat').forEach((s) => statObserver.observe(s));
 
-  /* ── Hero parallax ── */
+  /* ── Scroll effects (rAF loop) ── */
+  const hero = $('#hero');
   const heroImg = $('#hero-parallax');
+  const scrollCards = $$('[data-scroll-card]');
+  let heroMouseX = 0, heroMouseY = 0;
+
   if (heroImg) {
     document.addEventListener('mousemove', (e) => {
-      const x = (e.clientX / window.innerWidth - 0.5) * 20;
-      const y = (e.clientY / window.innerHeight - 0.5) * 20;
-      heroImg.style.transform = `scale(1.1) translate(${x}px, ${y}px)`;
+      heroMouseX = (e.clientX / window.innerWidth - 0.5) * 28;
+      heroMouseY = (e.clientY / window.innerHeight - 0.5) * 28;
+    }, { passive: true });
+  }
+
+  function updateScrollEffects() {
+    const vh = window.innerHeight;
+
+    if (hero && heroImg) {
+      const rect = hero.getBoundingClientRect();
+      const progress = Math.min(1, Math.max(0, -rect.top / Math.max(rect.height * 0.9, 1)));
+      const scale = 1.14 + progress * 0.28;
+      const y = progress * 140 + heroMouseY * 0.6;
+      const x = heroMouseX * 0.6;
+      heroImg.style.transform = `scale(${scale}) translate(${x}px, ${y}px)`;
+    }
+
+    scrollCards.forEach((card) => {
+      const img = $('.teaser-card-img', card);
+      if (!img) return;
+
+      const rect = card.getBoundingClientRect();
+      const center = rect.top + rect.height * 0.5;
+      const dist = (center - vh * 0.5) / vh;
+      const progress = Math.max(0, 1 - Math.abs(dist) * 1.2);
+
+      const scale = 1.12 + progress * 0.16;
+      const y = dist * -36;
+      img.style.transform = `scale(${scale}) translateY(${y}px)`;
     });
+  }
+
+  function onScrollFrame() {
+    updateScrollEffects();
+    requestAnimationFrame(onScrollFrame);
+  }
+
+  if (heroImg || scrollCards.length) {
+    requestAnimationFrame(onScrollFrame);
+    window.addEventListener('scroll', updateScrollEffects, { passive: true });
+    window.addEventListener('resize', updateScrollEffects, { passive: true });
+    updateScrollEffects();
   }
 
   /* ── Card tilt ── */

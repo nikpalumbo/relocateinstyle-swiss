@@ -8,3 +8,4 @@
 /*.JPEG
 /*.png
 !assets/**
+.vercel

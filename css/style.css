@@ -17,10 +17,10 @@
   --overlay-mid: rgba(255, 255, 255, 0.65);
   --overlay-soft: rgba(255, 255, 255, 0.45);
   --radius: 12px;
-  --font-sans: 'Inter', system-ui, sans-serif;
-  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Century Gothic', 'CenturyGothic', 'AppleGothic', sans-serif;
+  --font-serif: 'Century Gothic', 'CenturyGothic', 'AppleGothic', sans-serif;
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
-  --nav-h: 100px;
+  --nav-h: 120px;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -113,7 +113,7 @@ input, select, textarea { font-family: inherit; }
 }
 
 .loader-logo {
-  height: 80px;
+  height: 100px;
   animation: pulse 1.5s ease infinite;
 }
 
@@ -160,13 +160,7 @@ input, select, textarea { font-family: inherit; }
   box-shadow: 0 4px 24px var(--shadow);
 }
 
-.nav-logo img { height: 88px; }
-
-.nav-logo img,
-.footer-logo,
-.loader-logo {
-  mix-blend-mode: screen;
-}
+.nav-logo img { height: 120px; }
 
 .nav-links {
   display: flex;
@@ -1040,7 +1034,7 @@ body.loaded .hero-title .line:nth-child(2) span {
   text-align: center;
 }
 
-.footer-logo { height: 64px; opacity: 0.9; }
+.footer-logo { height: 88px; opacity: 1; }
 .footer p { font-size: 12px; color: var(--text-muted); }
 
 .footer-version {
@@ -1205,15 +1199,15 @@ body.loaded .hero-title .line:nth-child(2) span {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, var(--overlay-soft) 0%, var(--overlay) 100%),
-    linear-gradient(90deg, var(--overlay) 0%, var(--overlay-mid) 50%, var(--overlay) 100%);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.72) 100%),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.52) 50%, rgba(255, 255, 255, 0.72) 100%);
 }
 
 .page-hero-sunset .page-hero-overlay {
   background:
-    linear-gradient(180deg, var(--overlay-soft) 0%, var(--overlay) 100%),
-    linear-gradient(90deg, var(--overlay-mid) 0%, rgba(255,255,255,0.3) 50%, var(--overlay-mid) 100%),
-    radial-gradient(ellipse at 70% 30%, rgba(201,169,98,0.2) 0%, transparent 50%);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.72) 100%),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.52) 0%, rgba(255, 255, 255, 0.28) 50%, rgba(255, 255, 255, 0.52) 100%),
+    radial-gradient(ellipse at 70% 30%, rgba(201, 169, 98, 0.2) 0%, transparent 50%);
 }
 
 .page-hero-content {
@@ -1519,6 +1513,92 @@ body[data-page="about"] .vision-quote blockquote {
   margin-bottom: 24px;
 }
 
+.team-external {
+  margin-top: 56px;
+  padding-top: 48px;
+  border-top: 1px solid var(--border);
+}
+
+.team-external .section-label {
+  margin-bottom: 8px;
+}
+
+.team-external-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: 28px;
+}
+
+.team-grid-external {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.team-card-external {
+  padding: 32px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 32px var(--shadow);
+}
+
+.team-card-external .team-avatar {
+  margin-bottom: 16px;
+}
+
+.team-card-external h3 {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  margin-bottom: 6px;
+}
+
+.team-card-external .team-role {
+  margin-bottom: 0;
+}
+
+.service-partners {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin: 0 0 32px;
+}
+
+.service-partner-label + .service-partners {
+  margin-top: 0;
+}
+
+.service-partners .service-partner {
+  margin: 0;
+  height: 100%;
+}
+
+.service-partner-cta {
+  display: block;
+  margin-top: 12px;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+}
+
+.service-partner-link:hover .service-partner-cta {
+  color: var(--gold);
+}
+
+.service-partner-link {
+  display: block;
+  color: inherit;
+}
+
+.service-partner:has(.service-partner-link:hover) {
+  border-color: var(--gold);
+}
+
+.service-partner-link:hover .service-partner-name {
+  color: var(--gold);
+}
+
 /* ── Services grid ── */
 .services-grid {
   display: grid;
@@ -1661,18 +1741,20 @@ body[data-page="about"] .vision-quote blockquote {
 }
 
 .feature-list li::before {
-  content: '◈';
+  content: '';
   position: absolute;
-  left: 0;
-  color: var(--gold);
-  font-size: 10px;
-  top: 4px;
+  left: 4px;
+  top: 9px;
+  width: 4px;
+  height: 4px;
+  background: var(--gold);
+  transform: rotate(45deg);
 }
 
 .feature-list.diamond li::before {
-  content: '◆';
-  font-size: 8px;
-  top: 5px;
+  width: 4px;
+  height: 4px;
+  top: 9px;
 }
 
 /* ── Services page ── */
@@ -1690,16 +1772,21 @@ body[data-page="about"] .vision-quote blockquote {
   font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--text-dark);
+  font-weight: 600;
   padding: 12px 24px;
-  border: 1px solid var(--border);
+  background: var(--gold);
+  border: 1px solid var(--gold);
   border-radius: 100px;
-  transition: color 0.3s, border-color 0.3s, background 0.3s;
+  box-shadow: 0 4px 16px rgba(201, 169, 98, 0.25);
+  transition: color 0.3s, border-color 0.3s, background 0.3s, box-shadow 0.3s;
 }
 
 .service-nav-link:hover {
-  color: var(--gold);
-  border-color: var(--gold);
+  color: var(--text-dark);
+  background: var(--gold-light);
+  border-color: var(--gold-light);
+  box-shadow: 0 6px 20px rgba(201, 169, 98, 0.35);
 }
 
 .service-pillar {
@@ -1735,6 +1822,21 @@ body[data-page="about"] .vision-quote blockquote {
   color: var(--text-muted);
 }
 
+.service-partner-name-lg {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.service-partner-tagline {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
 .vision-quote-inline {
   font-family: var(--font-serif);
   font-size: clamp(1.35rem, 3vw, 1.85rem);
@@ -1754,9 +1856,48 @@ body[data-page="about"] .vision-quote blockquote {
 }
 
 /* ── Partners (Ticino) ── */
+.partners-grid-centered {
+  max-width: 300px;
+  margin-inline: auto;
+  grid-template-columns: 1fr;
+}
+
+.partners-grid-property {
+  max-width: 680px;
+  margin-inline: auto;
+}
+
+.partners-grid-single {
+  max-width: 300px;
+  margin-inline: auto;
+  grid-template-columns: 1fr;
+}
+
+.partners-grid-property .partner-logo img {
+  max-height: 72px;
+}
+
+.partners-grid-property .partner-logo-dark img {
+  max-width: 72px;
+}
+
+.service-partners-single {
+  max-width: 280px;
+}
+
+.partners-grid-centered .partner-logo {
+  height: 100px;
+  padding: 12px;
+}
+
+.partners-grid-centered .partner-logo img {
+  max-height: 72px;
+  max-width: 72px;
+}
+
 .partners-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 24px;
 }
 
@@ -1796,6 +1937,14 @@ body[data-page="about"] .vision-quote blockquote {
   width: auto;
   height: auto;
   object-fit: contain;
+}
+
+.partner-logo-dark {
+  background: #111;
+}
+
+.partner-logo-wide img {
+  max-height: 64px;
 }
 
 .partner-card h3 {

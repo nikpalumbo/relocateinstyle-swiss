@@ -323,10 +323,11 @@ input, select, textarea { font-family: inherit; }
 
 .hero-title {
   font-family: var(--font-serif);
-  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-size: clamp(1.75rem, 4.8vw, 3.75rem);
   font-weight: 400;
   line-height: 1.05;
   margin-bottom: 28px;
+  white-space: nowrap;
 }
 
 .hero-title .line {
@@ -334,8 +335,9 @@ input, select, textarea { font-family: inherit; }
   overflow: hidden;
 }
 
-.hero-title .line span {
+.hero-title .line > span {
   display: inline-block;
+  white-space: nowrap;
   transform: translateY(110%);
   transition: transform 1s var(--ease);
 }
@@ -345,12 +347,8 @@ input, select, textarea { font-family: inherit; }
   color: var(--gold);
 }
 
-body.loaded .hero-title .line span {
+body.loaded .hero-title .line > span {
   transform: translateY(0);
-}
-
-body.loaded .hero-title .line:nth-child(2) span {
-  transition-delay: 0.15s;
 }
 
 .hero-desc {
@@ -1218,6 +1216,17 @@ body.loaded .hero-title .line:nth-child(2) span {
   width: 100%;
 }
 
+.page-hero-content-center {
+  text-align: center;
+}
+
+.page-hero .hero-eyebrow {
+  color: #8a6b2e;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+}
+
 .page-hero-title {
   font-family: var(--font-serif);
   font-size: clamp(2.5rem, 6vw, 4.5rem);
@@ -1226,6 +1235,20 @@ body.loaded .hero-title .line:nth-child(2) span {
 }
 
 .page-hero-title em { font-style: italic; color: var(--gold); }
+
+.page-hero-title-services {
+  white-space: nowrap;
+  font-size: clamp(1.35rem, 3.8vw, 3rem);
+}
+
+.page-hero-title .title-gold {
+  color: var(--gold);
+}
+
+.page-hero-title .title-dark {
+  color: var(--text);
+  font-style: normal;
+}
 
 .page-hero-tagline {
   font-family: var(--font-serif);
@@ -1254,6 +1277,19 @@ body.loaded .hero-title .line:nth-child(2) span {
 .section-cta {
   margin-top: 48px;
   text-align: center;
+}
+
+.section-cta-left {
+  margin-top: 32px;
+  text-align: left;
+}
+
+.split-text .section-lead {
+  max-width: none;
+}
+
+.split-image-landscape {
+  aspect-ratio: 4 / 3;
 }
 
 .cta-banner {
@@ -1945,6 +1981,14 @@ body[data-page="about"] .vision-quote blockquote {
 
 .partner-logo-wide img {
   max-height: 64px;
+}
+
+.partner-initials {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: var(--gold);
+  letter-spacing: 0.08em;
 }
 
 .partner-card h3 {

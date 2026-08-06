@@ -1265,6 +1265,13 @@ body.loaded .hero-title .line > span {
 
 .page-hero-tagline em { font-style: italic; color: var(--gold); }
 
+/* Lifestyle: match hero title to in-page section titles */
+body[data-page="lifestyle"] .page-hero-title {
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  line-height: 1.15;
+  font-weight: 400;
+}
+
 /* ── Multi-page: Shared content blocks ── */
 .body-text {
   font-size: 16px;
@@ -2857,4 +2864,51 @@ body.membership-modal-open {
   .why-grid,
   .ticino-gallery { grid-template-columns: 1fr; }
   .page-hero { min-height: 50vh; }
+}
+
+/* Swiss villages gallery on Lifestyle */
+.lifestyle-village-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 56px;
+  padding-bottom: 8px;
+}
+
+.lifestyle-village-item {
+  margin: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: border-color 0.3s, transform 0.4s var(--ease);
+}
+
+.lifestyle-village-item:hover {
+  border-color: var(--gold);
+}
+
+.lifestyle-village-item img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s var(--ease);
+}
+
+.lifestyle-village-item:hover img {
+  transform: scale(1.04);
+}
+
+@media (max-width: 900px) {
+  .lifestyle-village-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .lifestyle-village-gallery {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin-inline: auto;
+  }
 }

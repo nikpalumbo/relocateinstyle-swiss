@@ -1034,6 +1034,11 @@ body.loaded .hero-title .line > span {
 
 .footer-logo { height: 88px; opacity: 1; }
 .footer p { font-size: 12px; color: var(--text-muted); }
+.footer-address {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
 
 .footer-version {
   font-size: 12px;

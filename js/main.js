@@ -39,7 +39,7 @@
     }
     animateRing();
 
-    $$('a, button, [data-tilt], .approach-card, .exp-card, .teaser-card, .service-card, .immersive-thumbs img, .hero-gallery-main, .hero-gallery-item, .scroll-card').forEach((el) => {
+    $$('a, button, [data-tilt], .approach-card, .exp-card, .teaser-card, .service-card, .immersive-thumbs img, .hero-gallery-main, .hero-gallery-item, .scroll-card, .lifestyle-doc').forEach((el) => {
       el.addEventListener('mouseenter', () => ring.classList.add('hover'));
       el.addEventListener('mouseleave', () => ring.classList.remove('hover'));
     });
@@ -299,6 +299,128 @@
   if (new URLSearchParams(window.location.search).get('sent') === '1' && formSuccess) {
     formSuccess.hidden = false;
     if (form) form.style.display = 'none';
+  }
+
+  /* ── Video lightbox (Lifestyle / Marbella) ── */
+  const videoModals = $$('.video-modal');
+  if (videoModals.length) {
+    const openVideoModal = (modal) => {
+      if (!modal) return;
+      modal.hidden = false;
+      document.body.classList.add('video-modal-open');
+      const video = $('video', modal);
+      if (video) {
+        video.load();
+        const playPromise = video.play();
+        if (playPromise && typeof playPromise.catch === 'function') {
+          playPromise.catch(() => {});
+        }
+      }
+      $('.video-modal-close', modal)?.focus();
+    };
+
+    const closeVideoModal = (modal) => {
+      if (!modal || modal.hidden) return;
+      modal.hidden = true;
+      document.body.classList.remove('video-modal-open');
+      const video = $('video', modal);
+      if (video) {
+        video.pause();
+        video.currentTime = 0;
+      }
+    };
+
+    $$('[data-video-open]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        openVideoModal($('#' + btn.getAttribute('data-video-open')));
+      });
+    });
+
+    videoModals.forEach((modal) => {
+      modal.querySelectorAll('[data-video-close]').forEach((el) => {
+        el.addEventListener('click', () => closeVideoModal(modal));
+      });
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key !== 'Escape') return;
+      videoModals.forEach((modal) => closeVideoModal(modal));
+    });
+  }
+
+  /* ── Image gallery lightbox (Swiss villages) ── */
+  const galleryModals = $$('.gallery-modal');
+  if (galleryModals.length) {
+    galleryModals.forEach((modal) => {
+      let index = 0;
+      let images = [];
+      try {
+        images = JSON.parse(modal.getAttribute('data-gallery-images') || '[]');
+      } catch (err) {
+        images = [];
+      }
+
+      const imgEl = $('[data-gallery-image]', modal);
+      const countEl = $('[data-gallery-count]', modal);
+
+      const render = () => {
+        if (!images.length || !imgEl) return;
+        const item = images[index];
+        imgEl.src = item.src;
+        imgEl.alt = item.alt || '';
+        if (countEl) countEl.textContent = `${index + 1} / ${images.length}`;
+      };
+
+      const open = (start = 0) => {
+        if (!images.length) return;
+        index = Math.max(0, Math.min(start, images.length - 1));
+        modal.hidden = false;
+        document.body.classList.add('gallery-modal-open');
+        render();
+        $('.gallery-modal-close', modal)?.focus();
+      };
+
+      const close = () => {
+        if (modal.hidden) return;
+        modal.hidden = true;
+        document.body.classList.remove('gallery-modal-open');
+      };
+
+      const next = () => {
+        if (!images.length) return;
+        index = (index + 1) % images.length;
+        render();
+      };
+
+      const prev = () => {
+        if (!images.length) return;
+        index = (index - 1 + images.length) % images.length;
+        render();
+      };
+
+      modal._galleryApi = { open, close, next, prev };
+
+      modal.querySelectorAll('[data-gallery-close]').forEach((el) => {
+        el.addEventListener('click', close);
+      });
+      $('[data-gallery-next]', modal)?.addEventListener('click', next);
+      $('[data-gallery-prev]', modal)?.addEventListener('click', prev);
+    });
+
+    $$('[data-gallery-open]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const modal = $('#' + btn.getAttribute('data-gallery-open'));
+        modal?._galleryApi?.open(0);
+      });
+    });
+
+    document.addEventListener('keydown', (e) => {
+      const openModal = galleryModals.find((m) => !m.hidden);
+      if (!openModal || !openModal._galleryApi) return;
+      if (e.key === 'Escape') openModal._galleryApi.close();
+      if (e.key === 'ArrowRight') openModal._galleryApi.next();
+      if (e.key === 'ArrowLeft') openModal._galleryApi.prev();
+    });
   }
 
 })();

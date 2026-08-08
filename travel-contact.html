@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Plan a stay or arrange travel with Tarja Pedalino, The Travel Studio Partner — global travel expert for Relocateinstyle SA.">
+  <title>Plan travel &amp; accommodation | Relocateinstyle SA</title>
+  <link rel="stylesheet" href="css/style.css?v=44">
+  <link rel="icon" href="assets/images/logo.png" type="image/png">
+</head>
+<body data-page="lifestyle">
+
+  <div class="cursor-dot" id="cursor-dot"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+  <div class="scroll-progress" id="scroll-progress"></div>
+
+  <header class="nav scrolled" id="nav">
+    <a href="index.html" class="nav-logo"><img src="assets/images/logo.png" alt="Relocateinstyle"></a>
+    <nav class="nav-links" id="nav-links">
+      <a href="index.html" data-page="home">Home</a>
+      <a href="about.html" data-page="about">About</a>
+      <a href="services.html" data-page="services">Services</a>
+      <a href="lifestyle.html" data-page="lifestyle">Lifestyle</a>
+      <a href="ticino.html" data-page="partners">Partners</a>
+      <a href="membership.html" data-page="membership">Membership</a>
+      <a href="contact.html" data-page="contact" class="nav-cta">Contact</a>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menu"><span></span><span></span></button>
+  </header>
+
+  <main>
+
+    <section class="page-hero page-hero-short">
+      <div class="page-hero-bg">
+        <img src="assets/images/lifestyle/lifestyle-hero.jpg" alt="">
+        <div class="page-hero-overlay"></div>
+      </div>
+      <div class="page-hero-content">
+        <p class="hero-eyebrow reveal">Lifestyle · Travel Studio</p>
+        <h1 class="page-hero-title reveal">Plan a stay<br><em>&amp; arrange travel</em></h1>
+      </div>
+    </section>
+
+    <section class="section section-contact">
+      <div class="section-inner contact-layout">
+        <div class="contact-info reveal">
+          <div class="section-label">How it works</div>
+          <ol class="contact-steps">
+            <li>Share your preferred dates, destination and travel style in the form.</li>
+            <li>Tarja will respond personally, usually within one business day.</li>
+            <li>We refine itineraries, hotels and logistics — discreetly and without obligation.</li>
+          </ol>
+          <div class="contact-details">
+            <a href="tel:+41795941226" class="contact-link">
+              <span class="contact-link-label">Mobile</span>
+              <span>+41 79 594 12 26</span>
+            </a>
+            <a href="mailto:Tarja.pedalino@thetravelstudio.ch" class="contact-link">
+              <span class="contact-link-label">Email</span>
+              <span>Tarja.pedalino@thetravelstudio.ch</span>
+            </a>
+            <div class="contact-link">
+              <span class="contact-link-label">Languages</span>
+              <span>Italian · German · French · English</span>
+            </div>
+            <div class="contact-link">
+              <span class="contact-link-label">Partner</span>
+              <span>The Travel Studio</span>
+            </div>
+          </div>
+          <div class="contact-person-block reveal">
+            <div class="team-avatar">TP</div>
+            <div>
+              <strong>Tarja Pedalino</strong>
+              <span>The Travel Studio Partner · Global travel expert</span>
+            </div>
+          </div>
+        </div>
+        <form class="contact-form reveal" id="contact-form" action="https://formsubmit.co/Tarja.pedalino@thetravelstudio.ch" method="POST">
+          <input type="hidden" name="_subject" value="Lifestyle travel enquiry — Relocateinstyle">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://relocateinstyle.ch/travel-contact.html?sent=1">
+          <p class="form-note" id="form-success" hidden>Thank you, your message has been sent. Tarja will be in touch shortly.</p>
+          <div class="form-field">
+            <input type="text" id="name" name="name" required placeholder=" ">
+            <label for="name">Your name</label>
+          </div>
+          <div class="form-field">
+            <input type="email" id="email" name="email" required placeholder=" ">
+            <label for="email">Email address</label>
+          </div>
+          <div class="form-field">
+            <select id="interest" name="interest" required>
+              <option value="" disabled selected></option>
+              <option value="hidden-gems">Hidden gems / stay</option>
+              <option value="holiday-homes">Holiday homes</option>
+              <option value="travel">Travel &amp; ticketing</option>
+              <option value="private-jet">Private jet</option>
+              <option value="yacht">Yacht charter</option>
+              <option value="other">Other</option>
+            </select>
+            <label for="interest">What can we arrange?</label>
+          </div>
+          <div class="form-field">
+            <textarea id="message" name="message" rows="5" required placeholder=" "></textarea>
+            <label for="message">Dates, destinations and preferences</label>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">
+            <span>Send message</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <img src="assets/images/logo.png" alt="Relocateinstyle" class="footer-logo">
+        <nav class="footer-nav">
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="lifestyle.html">Lifestyle</a>
+      <a href="ticino.html">Partners</a>
+      <a href="membership.html">Membership</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <p class="footer-address">Headquarters · Via Balestra 5, third floor<br>6900 Lugano, Switzerland</p>
+    <p>© 2026 Relocateinstyle SA · Since 2012</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

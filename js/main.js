@@ -150,7 +150,7 @@
     if (hero && heroImg) {
       const rect = hero.getBoundingClientRect();
       const progress = Math.min(1, Math.max(0, -rect.top / Math.max(rect.height * 0.9, 1)));
-      const scale = 1.14 + progress * 0.28;
+      const scale = 1.04 + progress * 0.12;
       const y = progress * 140 + heroMouseY * 0.6;
       const x = heroMouseX * 0.6;
       heroImg.style.transform = `scale(${scale}) translate(${x}px, ${y}px)`;

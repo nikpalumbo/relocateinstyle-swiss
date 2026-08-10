@@ -1386,41 +1386,49 @@ body[data-page="lifestyle"] .page-hero-overlay {
 
 .teaser-overlay {
   position: absolute;
-  inset: 0;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
   z-index: 1;
-  padding: 28px;
+  padding: 18px 18px 16px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  background: linear-gradient(180deg, transparent 30%, rgba(255,255,255,0.95) 100%);
+  background: var(--bg-elevated);
+  border: 1px solid rgba(44, 36, 22, 0.08);
+  border-radius: calc(var(--radius) - 2px);
+  box-shadow: none;
 }
 
 .teaser-label {
   font-size: 10px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 8px;
+  color: var(--gold-dark);
+  margin-bottom: 6px;
 }
 
 .teaser-overlay h3 {
   font-family: var(--font-serif);
-  font-size: 1.75rem;
-  margin-bottom: 8px;
+  font-size: 1.45rem;
+  line-height: 1.2;
+  margin-bottom: 6px;
+  color: var(--text);
 }
 
 .teaser-overlay p {
-  font-size: 14px;
-  line-height: 1.6;
+  font-size: 13px;
+  line-height: 1.55;
   color: var(--text-muted);
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .teaser-link {
-  font-size: 12px;
-  letter-spacing: 0.08em;
+  font-size: 11px;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--gold);
+  font-weight: 600;
+  color: var(--gold-dark);
 }
 
 /* ── Vision (About) ── */

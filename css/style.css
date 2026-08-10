@@ -1273,9 +1273,9 @@ body[data-page="lifestyle"] .page-hero-title {
   font-weight: 400;
 }
 
-/* Lifestyle hero — Lugano gate (portrait crop into wide hero) */
+/* Lifestyle hero — infinity pool landscape */
 body[data-page="lifestyle"] .page-hero-bg img {
-  object-position: center 42%;
+  object-position: center 45%;
 }
 
 body[data-page="lifestyle"] .page-hero-overlay {

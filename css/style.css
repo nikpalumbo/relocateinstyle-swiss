@@ -1380,6 +1380,12 @@ body[data-page="lifestyle"] .page-hero-overlay {
   transition: filter 0.4s var(--ease);
 }
 
+.teaser-card-img--pullback {
+  inset: 0;
+  height: 100%;
+  object-position: center center;
+}
+
 .teaser-card:hover { border-color: var(--gold); }
 .teaser-card:hover img:not(.teaser-card-img) { transform: scale(1.06); }
 .teaser-card:hover .teaser-card-img { filter: brightness(1.06); }

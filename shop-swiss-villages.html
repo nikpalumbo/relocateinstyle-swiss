@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Order the Michelin map and Swiss village guidebooks from Relocateinstyle SA. Delivery in Switzerland or pick-up in Lugano.">
   <title>Order map &amp; books | Relocateinstyle SA</title>
-  <link rel="stylesheet" href="css/style.css?v=63">
+  <link rel="stylesheet" href="css/style.css?v=64">
   <link rel="icon" href="assets/images/logo.png" type="image/png">
 </head>
 <body data-page="shop">
@@ -186,32 +186,38 @@
           <input type="hidden" name="order_items" id="shop-order-items" value="">
           <input type="hidden" name="order_total" id="shop-order-total" value="">
           <input type="hidden" name="delivery_method" id="shop-delivery-method" value="post">
-          <p class="form-note" id="shop-success" hidden>Thank you — order received. Complete the transfer above and we will confirm dispatch or pick-up.</p>
-          <div class="form-field">
-            <input type="text" id="s-name" name="name" required placeholder=" ">
-            <label for="s-name">Your name</label>
+          <div class="form-fields" id="shop-fields">
+            <div class="form-field">
+              <input type="text" id="s-name" name="name" required placeholder=" ">
+              <label for="s-name">Your name</label>
+            </div>
+            <div class="form-field">
+              <input type="email" id="s-email" name="email" required placeholder=" ">
+              <label for="s-email">Email address</label>
+            </div>
+            <div class="form-field">
+              <input type="tel" id="s-phone" name="phone" placeholder=" ">
+              <label for="s-phone">Phone / WhatsApp</label>
+            </div>
+            <div class="form-field">
+              <textarea id="s-address" name="shipping_address" rows="3" placeholder=" "></textarea>
+              <label for="s-address">Swiss delivery address (if post)</label>
+            </div>
+            <label class="membership-check">
+              <input type="checkbox" name="payment_confirmed" value="yes" required>
+              <span>I will transfer the order total to the IBAN above with my name as reference.</span>
+            </label>
+            <button type="submit" class="btn btn-primary btn-full">
+              <span>Send order</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
           </div>
-          <div class="form-field">
-            <input type="email" id="s-email" name="email" required placeholder=" ">
-            <label for="s-email">Email address</label>
-          </div>
-          <div class="form-field">
-            <input type="tel" id="s-phone" name="phone" placeholder=" ">
-            <label for="s-phone">Phone / WhatsApp</label>
-          </div>
-          <div class="form-field">
-            <textarea id="s-address" name="shipping_address" rows="3" placeholder=" "></textarea>
-            <label for="s-address">Swiss delivery address (if post)</label>
-          </div>
-          <label class="membership-check">
-            <input type="checkbox" name="payment_confirmed" value="yes" required>
-            <span>I will transfer the order total to the IBAN above with my name as reference.</span>
-          </label>
-          <button type="submit" class="btn btn-primary btn-full">
-            <span>Send order</span>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </button>
         </form>
+        <div class="form-thanks" id="shop-success" hidden>
+          <p class="form-thanks-eyebrow">Order received</p>
+          <h2 class="form-thanks-title">Thank you</h2>
+          <p class="form-thanks-text">Your order has been sent. Please complete the bank transfer above (QR or IBAN). We will confirm dispatch or pick-up once payment is received.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -230,7 +236,7 @@
     <p>© 2026 Relocateinstyle SA · Since 2012</p>
   </footer>
 
-  <script src="js/main.js?v=7"></script>
+  <script src="js/main.js?v=8"></script>
   <script>
     (function () {
       var IBAN = 'CH44007640E7161501008';
@@ -320,7 +326,14 @@
       });
       if (new URLSearchParams(window.location.search).get('ordered') === '1') {
         var note = document.getElementById('shop-success');
-        if (note) note.hidden = false;
+        var fields = document.getElementById('shop-fields');
+        var form = document.getElementById('shop-form');
+        if (fields) fields.hidden = true;
+        if (form) form.hidden = true;
+        if (note) {
+          note.hidden = false;
+          note.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
         openModal();
       }
     })();

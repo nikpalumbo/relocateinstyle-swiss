@@ -298,7 +298,8 @@
 
   if (new URLSearchParams(window.location.search).get('sent') === '1' && formSuccess) {
     formSuccess.hidden = false;
-    if (form) form.style.display = 'none';
+    if (form) form.hidden = true;
+    formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 
   /* ── Video lightbox (Lifestyle / Marbella) ── */

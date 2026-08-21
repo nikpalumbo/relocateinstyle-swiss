@@ -3285,33 +3285,74 @@ body.membership-modal-open {
   .ticino-gallery { grid-template-columns: 1fr; }
   .page-hero { min-height: 50vh; }
 
+  /* Home hero: start under the bar, no vertical centering that pushes the photo down */
   .hero {
-    padding-left: 28px;
-    padding-right: 28px;
+    min-height: auto;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: calc(var(--nav-h) + 20px) 40px 40px;
+  }
+
+  .hero-grid {
+    gap: 20px;
+    width: 100%;
   }
 
   .hero-content {
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
+    padding-inline: 4px;
   }
 
   .hero-eyebrow {
-    letter-spacing: 0.1em;
-    margin-bottom: 18px;
-    padding-right: 8px;
+    letter-spacing: 0.08em;
+    margin-bottom: 16px;
+    padding-inline: 0;
     max-width: 100%;
-    overflow-wrap: anywhere;
+    line-height: 1.4;
   }
 
   .hero-title {
     white-space: normal;
     font-size: clamp(1.6rem, 9vw, 2.4rem);
+    margin-bottom: 18px;
+  }
+
+  .hero-title .line > span {
+    white-space: normal;
   }
 
   .hero-desc {
     max-width: 100%;
-    padding-right: 4px;
+    margin-bottom: 24px;
+    font-size: 15px;
+  }
+
+  .hero-actions {
+    gap: 12px;
+  }
+
+  .hero-visual {
+    margin-top: 8px;
+    width: 100%;
+  }
+
+  .hero-gallery {
+    max-width: 100%;
+  }
+
+  .hero-scroll {
+    display: none;
+  }
+
+  .page-hero {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .page-hero-content {
+    padding-inline: 0;
   }
 }
 

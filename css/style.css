@@ -3297,14 +3297,6 @@ body.membership-modal-open {
     object-position: center 28%;
   }
 
-  /* Strong light wash so dark photo never kills text contrast on mobile */
-  .hero-gradient,
-  .hero-gradient-sunset {
-    background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.88) 45%, rgba(255, 255, 255, 0.9) 100%),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.82) 55%, rgba(255, 255, 255, 0.7) 100%) !important;
-  }
-
   .hero-grid {
     gap: 16px;
     width: 100%;
@@ -3324,14 +3316,12 @@ body.membership-modal-open {
     max-width: 100%;
     line-height: 1.45;
     font-size: 11px;
-    color: var(--gold-dark);
   }
 
   .hero-title {
     white-space: normal;
     font-size: clamp(1.55rem, 8.5vw, 2.25rem);
     margin-bottom: 14px;
-    color: var(--text);
   }
 
   .hero-title .line > span {
@@ -3342,7 +3332,6 @@ body.membership-modal-open {
     max-width: 100%;
     margin-bottom: 20px;
     font-size: 15px;
-    color: var(--text);
   }
 
   .hero-actions {

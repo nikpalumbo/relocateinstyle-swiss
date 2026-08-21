@@ -3290,7 +3290,7 @@ body.membership-modal-open {
     min-height: auto;
     align-items: flex-start;
     justify-content: flex-start;
-    padding: calc(var(--nav-h) + 12px) max(48px, env(safe-area-inset-right) + 24px) 32px max(48px, env(safe-area-inset-left) + 24px);
+    padding: calc(var(--nav-h) + 28px) 56px 56px;
   }
 
   .hero-bg-img {
@@ -3369,8 +3369,8 @@ body.membership-modal-open {
   }
 
   .page-hero {
-    padding-left: max(48px, env(safe-area-inset-left) + 24px);
-    padding-right: max(48px, env(safe-area-inset-right) + 24px);
+    padding-left: 56px;
+    padding-right: 56px;
   }
 
   .page-hero-content {

@@ -67,9 +67,25 @@
   }
 
   if (navToggle && navLinks) {
-    navToggle.addEventListener('click', () => {
-      navToggle.classList.toggle('active');
-      navLinks.classList.toggle('open');
+    const setNavOpen = (open) => {
+      navToggle.classList.toggle('active', open);
+      navLinks.classList.toggle('open', open);
+      document.body.classList.toggle('nav-open', open);
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    };
+
+    navToggle.setAttribute('aria-expanded', 'false');
+    navToggle.setAttribute('aria-controls', 'nav-links');
+
+    navToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      setNavOpen(!navLinks.classList.contains('open'));
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+        setNavOpen(false);
+      }
     });
   }
 
@@ -80,6 +96,8 @@
     link.addEventListener('click', () => {
       navLinks?.classList.remove('open');
       navToggle?.classList.remove('active');
+      document.body.classList.remove('nav-open');
+      navToggle?.setAttribute('aria-expanded', 'false');
     });
   });
 

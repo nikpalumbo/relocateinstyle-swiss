@@ -6,13 +6,15 @@
 
   /* ── Loader (home only) ── */
   const loader = $('#loader');
+  const finishLoader = () => {
+    setTimeout(() => {
+      if (loader) loader.classList.add('hidden');
+      document.body.classList.add('loaded');
+    }, loader ? 1400 : 0);
+  };
   if (loader) {
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        loader.classList.add('hidden');
-        document.body.classList.add('loaded');
-      }, 1400);
-    });
+    if (document.readyState === 'complete') finishLoader();
+    else window.addEventListener('load', finishLoader);
   } else {
     document.body.classList.add('loaded');
   }

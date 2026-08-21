@@ -3316,26 +3316,52 @@ body.membership-modal-open {
     max-width: 100%;
     line-height: 1.45;
     font-size: 11px;
+    color: var(--gold-dark);
   }
 
   .hero-title {
     white-space: normal;
     font-size: clamp(1.55rem, 8.5vw, 2.25rem);
     margin-bottom: 14px;
+    color: var(--text-dark);
+  }
+
+  /* Never clip/slide the brand title off-screen on mobile */
+  .hero-title .line {
+    overflow: visible;
   }
 
   .hero-title .line > span {
     white-space: normal;
+    transform: none !important;
+  }
+
+  .hero-title em {
+    color: var(--gold-dark);
   }
 
   .hero-desc {
     max-width: 100%;
     margin-bottom: 20px;
     font-size: 15px;
+    color: var(--text-dark);
+  }
+
+  /* Hero copy must always show — do not wait on scroll reveal */
+  .hero .reveal {
+    opacity: 1;
+    transform: none;
   }
 
   .hero-actions {
     gap: 10px;
+  }
+
+  .hero-actions .btn-ghost {
+    background: #fff;
+    border: 1.5px solid var(--gold-dark);
+    color: var(--text-dark);
+    box-shadow: 0 2px 12px rgba(42, 31, 15, 0.08);
   }
 
   .hero-visual {

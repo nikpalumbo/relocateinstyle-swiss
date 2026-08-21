@@ -3290,11 +3290,21 @@ body.membership-modal-open {
     min-height: auto;
     align-items: flex-start;
     justify-content: flex-start;
-    padding: calc(var(--nav-h) + 20px) 40px 40px;
+    padding: calc(var(--nav-h) + 12px) max(48px, env(safe-area-inset-right) + 24px) 32px max(48px, env(safe-area-inset-left) + 24px);
+  }
+
+  .hero-bg-img {
+    object-position: center 28%;
+  }
+
+  .hero-gradient-sunset {
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.35) 35%, rgba(255, 255, 255, 0.72) 100%),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.35) 100%);
   }
 
   .hero-grid {
-    gap: 20px;
+    gap: 16px;
     width: 100%;
   }
 
@@ -3302,21 +3312,22 @@ body.membership-modal-open {
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
-    padding-inline: 4px;
+    padding-inline: 0;
   }
 
   .hero-eyebrow {
-    letter-spacing: 0.08em;
-    margin-bottom: 16px;
+    letter-spacing: 0.06em;
+    margin-bottom: 14px;
     padding-inline: 0;
     max-width: 100%;
-    line-height: 1.4;
+    line-height: 1.45;
+    font-size: 11px;
   }
 
   .hero-title {
     white-space: normal;
-    font-size: clamp(1.6rem, 9vw, 2.4rem);
-    margin-bottom: 18px;
+    font-size: clamp(1.55rem, 8.5vw, 2.25rem);
+    margin-bottom: 14px;
   }
 
   .hero-title .line > span {
@@ -3325,16 +3336,16 @@ body.membership-modal-open {
 
   .hero-desc {
     max-width: 100%;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
     font-size: 15px;
   }
 
   .hero-actions {
-    gap: 12px;
+    gap: 10px;
   }
 
   .hero-visual {
-    margin-top: 8px;
+    margin-top: 4px !important;
     width: 100%;
   }
 
@@ -3342,13 +3353,24 @@ body.membership-modal-open {
     max-width: 100%;
   }
 
+  .hero-gallery-main {
+    max-height: 200px;
+  }
+
+  .hero-gallery-main img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+  }
+
   .hero-scroll {
     display: none;
   }
 
   .page-hero {
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: max(48px, env(safe-area-inset-left) + 24px);
+    padding-right: max(48px, env(safe-area-inset-right) + 24px);
   }
 
   .page-hero-content {

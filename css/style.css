@@ -3407,6 +3407,10 @@ body.membership-modal-open {
   .page-hero-content {
     padding-inline: 0;
   }
+
+  .section-cta-left .btn {
+    white-space: nowrap;
+  }
 }
 
 /* Swiss villages — map & guidebook (compact rows, same pattern as holiday docs) */

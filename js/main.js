@@ -73,7 +73,7 @@
     });
   }
 
-  $$('[data-page]').forEach((link) => {
+  $$('#nav-links [data-page]').forEach((link) => {
     if (link.dataset.page === currentPage) {
       link.classList.add('active');
     }

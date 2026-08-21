@@ -3185,14 +3185,15 @@ body.membership-modal-open {
     height: 56px;
   }
 
-  /* Classic full-screen panel under the bar — links from the top, no sideways drawer */
+  /* Classic full-screen panel — moved to body on mobile so it is never trapped under hero */
+  body > .nav-links,
   .nav-links {
     position: fixed;
     top: var(--nav-h);
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 2001;
+    z-index: 3000;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -3210,6 +3211,7 @@ body.membership-modal-open {
     transition: opacity 0.2s ease, visibility 0.2s;
   }
 
+  body > .nav-links.open,
   .nav-links.open {
     opacity: 1;
     visibility: visible;
@@ -3282,6 +3284,35 @@ body.membership-modal-open {
   .why-grid,
   .ticino-gallery { grid-template-columns: 1fr; }
   .page-hero { min-height: 50vh; }
+
+  .hero {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .hero-eyebrow {
+    letter-spacing: 0.1em;
+    margin-bottom: 18px;
+    padding-right: 8px;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .hero-title {
+    white-space: normal;
+    font-size: clamp(1.6rem, 9vw, 2.4rem);
+  }
+
+  .hero-desc {
+    max-width: 100%;
+    padding-right: 4px;
+  }
 }
 
 /* Swiss villages — map & guidebook (compact rows, same pattern as holiday docs) */

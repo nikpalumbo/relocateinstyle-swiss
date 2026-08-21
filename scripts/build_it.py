@@ -99,7 +99,7 @@ def insert_chrome(html: str, name: str, italian: bool) -> str:
     needle = icon_it if icon_it in html else icon
     html = html.replace(needle, needle + "\n" + seo_links(name, italian), 1)
     html = html.replace("    " + TOGGLE, switcher(name, italian) + "\n    " + TOGGLE, 1)
-    html = html.replace('css/style.css?v=66', 'css/style.css?v=70')
+    html = html.replace('css/style.css?v=66', 'css/style.css?v=71')
     html = html.replace('js/i18n.js?v=2', 'js/i18n.js?v=3')
     return html
 

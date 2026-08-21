@@ -3285,12 +3285,12 @@ body.membership-modal-open {
   .ticino-gallery { grid-template-columns: 1fr; }
   .page-hero { min-height: 50vh; }
 
-  /* Home hero: start under the bar, no vertical centering that pushes the photo down */
+  /* Home hero — option A: copy on a light panel for guaranteed contrast */
   .hero {
     min-height: auto;
     align-items: flex-start;
     justify-content: flex-start;
-    padding: calc(var(--nav-h) + 28px) 56px 56px;
+    padding: calc(var(--nav-h) + 20px) 20px 40px;
   }
 
   .hero-bg-img {
@@ -3298,7 +3298,7 @@ body.membership-modal-open {
   }
 
   .hero-grid {
-    gap: 16px;
+    gap: 20px;
     width: 100%;
   }
 
@@ -3306,12 +3306,16 @@ body.membership-modal-open {
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
-    padding-inline: 0;
+    padding: 22px 22px 24px;
+    background: rgba(255, 252, 247, 0.94);
+    border: 1px solid rgba(201, 169, 98, 0.28);
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(42, 31, 15, 0.12);
   }
 
   .hero-eyebrow {
-    letter-spacing: 0.06em;
-    margin-bottom: 14px;
+    letter-spacing: 0.12em;
+    margin-bottom: 12px;
     padding-inline: 0;
     max-width: 100%;
     line-height: 1.45;
@@ -3321,12 +3325,11 @@ body.membership-modal-open {
 
   .hero-title {
     white-space: normal;
-    font-size: clamp(1.55rem, 8.5vw, 2.25rem);
-    margin-bottom: 14px;
+    font-size: clamp(1.55rem, 8vw, 2.2rem);
+    margin-bottom: 12px;
     color: var(--text-dark);
   }
 
-  /* Never clip/slide the brand title off-screen on mobile */
   .hero-title .line {
     overflow: visible;
   }
@@ -3342,12 +3345,12 @@ body.membership-modal-open {
 
   .hero-desc {
     max-width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
     font-size: 15px;
-    color: var(--text-dark);
+    line-height: 1.55;
+    color: var(--text);
   }
 
-  /* Hero copy must always show — do not wait on scroll reveal */
   .hero .reveal {
     opacity: 1;
     transform: none;
@@ -3355,18 +3358,26 @@ body.membership-modal-open {
 
   .hero-actions {
     gap: 10px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
   }
 
   .hero-actions .btn-ghost {
-    background: #fff;
-    border: 1.5px solid var(--gold-dark);
+    background: transparent;
+    border: 1px solid rgba(42, 31, 15, 0.22);
     color: var(--text-dark);
-    box-shadow: 0 2px 12px rgba(42, 31, 15, 0.08);
+    box-shadow: none;
   }
 
   .hero-visual {
-    margin-top: 4px !important;
+    margin-top: 0 !important;
     width: 100%;
+    padding: 0 4px;
   }
 
   .hero-gallery {
@@ -3374,12 +3385,12 @@ body.membership-modal-open {
   }
 
   .hero-gallery-main {
-    max-height: 200px;
+    max-height: 180px;
   }
 
   .hero-gallery-main img {
     width: 100%;
-    height: 200px;
+    height: 180px;
     object-fit: cover;
     object-position: center;
   }
@@ -3389,8 +3400,8 @@ body.membership-modal-open {
   }
 
   .page-hero {
-    padding-left: 56px;
-    padding-right: 56px;
+    padding-left: 24px;
+    padding-right: 24px;
   }
 
   .page-hero-content {

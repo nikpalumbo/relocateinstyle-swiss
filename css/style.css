@@ -2214,38 +2214,45 @@ body[data-page="about"] .vision-quote blockquote {
 
 .services-pkg-discover .mf-label {
   margin-bottom: 12px;
+  color: var(--gold-dark, #8a6f4a);
 }
 
-body[data-page="services"] .section-dark .pkg-dd {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.14);
+body[data-page="services"] .services-pkg-discover .pkg-dd {
+  background: #fff;
+  border: 1px solid rgba(28, 22, 12, 0.16);
+  box-shadow: 0 8px 24px rgba(28, 22, 12, 0.06);
 }
 
-body[data-page="services"] .section-dark .pkg-dd-summary {
-  color: #f5efe4;
+body[data-page="services"] .services-pkg-discover .pkg-dd-summary {
+  color: var(--ink, #1c160c);
 }
 
-body[data-page="services"] .section-dark .pkg-dd-hint,
-body[data-page="services"] .section-dark .pkg-dd-links-soon em {
-  color: rgba(245, 239, 228, 0.55);
+body[data-page="services"] .services-pkg-discover .pkg-dd-hint,
+body[data-page="services"] .services-pkg-discover .pkg-dd-links-soon em {
+  color: rgba(28, 22, 12, 0.5);
 }
 
-body[data-page="services"] .section-dark .pkg-dd-body {
-  border-top-color: rgba(255, 255, 255, 0.1);
+body[data-page="services"] .services-pkg-discover .pkg-dd-body {
+  border-top-color: rgba(28, 22, 12, 0.1);
 }
 
-body[data-page="services"] .section-dark .pkg-dd-lead,
-body[data-page="services"] .section-dark .pkg-dd-links a,
-body[data-page="services"] .section-dark .pkg-dd-links-soon li {
-  color: rgba(245, 239, 228, 0.9);
+body[data-page="services"] .services-pkg-discover .pkg-dd-lead,
+body[data-page="services"] .services-pkg-discover .pkg-dd-links a,
+body[data-page="services"] .services-pkg-discover .pkg-dd-links-soon li {
+  color: var(--text-muted, #5c5346);
 }
 
-body[data-page="services"] .section-dark .pkg-dd-links a {
+body[data-page="services"] .services-pkg-discover .pkg-dd-links a {
+  color: var(--ink, #1c160c);
   border-bottom-color: var(--gold, #b8956a);
 }
 
-body[data-page="services"] .section-dark .pkg-dd-links-soon li {
-  border-bottom-color: rgba(255, 255, 255, 0.08);
+body[data-page="services"] .services-pkg-discover .pkg-dd-links-soon li {
+  border-bottom-color: rgba(28, 22, 12, 0.08);
+}
+
+body[data-page="services"] .services-pkg-discover .pkg-dd-summary::after {
+  color: var(--gold-dark, #8a6f4a);
 }
 
 /* Relocation packages (flyer page) */

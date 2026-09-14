@@ -5,17 +5,31 @@
   var dict = {};
   var lang = 'en';
   var HOST = 'https://relocateinstyle.swiss';
+  var LOCALES = { it: true, de: true };
 
   function pathParts() {
     return location.pathname.split('/').filter(Boolean);
   }
 
   function langIndex(parts) {
-    return parts.indexOf('it');
+    parts = parts || pathParts();
+    for (var i = 0; i < parts.length; i++) {
+      if (LOCALES[parts[i]]) return i;
+    }
+    return -1;
   }
 
-  function onItalianPath() {
-    return langIndex(pathParts()) >= 0;
+  function pathLang() {
+    var i = langIndex();
+    return i >= 0 ? pathParts()[i] : null;
+  }
+
+  function onLocalePath() {
+    return pathLang() != null;
+  }
+
+  function inPreview() {
+    return pathParts().indexOf('preview') >= 0;
   }
 
   function isFileSeg(seg) {
@@ -62,10 +76,23 @@
     return (file === 'index.html' ? base : base + file) + searchNoLang() + location.hash;
   }
 
-  function itPath() {
+  function localePath(code) {
     var file = pageFile();
     var base = basePrefix();
-    return (file === 'index.html' ? base + 'it/' : base + 'it/' + file) + searchNoLang() + location.hash;
+    return (file === 'index.html' ? base + code + '/' : base + code + '/' + file) + searchNoLang() + location.hash;
+  }
+
+  function itPath() {
+    return localePath('it');
+  }
+
+  function dePath() {
+    // German site lives only under /preview/de/
+    var file = pageFile();
+    if (inPreview()) {
+      return localePath('de');
+    }
+    return (file === 'index.html' ? '/preview/de/' : '/preview/de/' + file) + searchNoLang() + location.hash;
   }
 
   function isBot() {
@@ -73,13 +100,19 @@
   }
 
   function detect() {
-    if (onItalianPath()) return 'it';
+    var fromPath = pathLang();
+    if (fromPath) return fromPath;
     try {
       var saved = (localStorage.getItem(STORAGE) || '').toLowerCase();
       if (saved === 'en' || saved === 'it') return saved;
+      // German only under preview — live has no /de/
+      if (saved === 'de' && inPreview()) return 'de';
     } catch (e) {}
     var nav = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase();
-    if (!isBot() && nav.indexOf('it') === 0) return 'it';
+    if (!isBot()) {
+      if (nav.indexOf('it') === 0) return 'it';
+      if (nav.indexOf('de') === 0 && inPreview()) return 'de';
+    }
     return 'en';
   }
 
@@ -126,9 +159,16 @@
     document.querySelectorAll('input[name="_next"]').forEach(function (el) {
       try {
         var next = new URL(el.value, HOST);
-        var path = next.pathname.replace(/^\/it(?=\/|$)/, '');
-        if (lang === 'it') next.pathname = '/it' + (path === '/' ? '/' : path);
-        else next.pathname = path || '/';
+        var path = next.pathname
+          .replace(/^\/preview(?=\/|$)/, '')
+          .replace(/^\/(it|de)(?=\/|$)/, '');
+        var underPreview = inPreview();
+        var prefix = underPreview ? '/preview' : '';
+        if (lang === 'it' || lang === 'de') {
+          next.pathname = prefix + '/' + lang + (path === '/' || path === '' ? '/' : path);
+        } else {
+          next.pathname = prefix + (path === '/' || path === '' ? '/' : path);
+        }
         next.searchParams.delete('lang');
         el.value = next.toString();
       } catch (e) {}
@@ -140,10 +180,17 @@
       a.setAttribute('aria-current', code === lang ? 'true' : 'false');
       if (code === 'en') a.setAttribute('href', enPath());
       if (code === 'it') a.setAttribute('href', itPath());
+      if (code === 'de') a.setAttribute('href', dePath());
     });
 
     document.documentElement.classList.remove('i18n-pending');
     document.dispatchEvent(new CustomEvent('ris:i18n', { detail: { lang: lang, t: t } }));
+  }
+
+  function switcherLabel() {
+    if (lang === 'it') return 'Lingua';
+    if (lang === 'de') return 'Sprache';
+    return 'Language';
   }
 
   function injectSwitcher() {
@@ -151,10 +198,11 @@
     if (!nav || nav.querySelector('.lang-switch')) return;
     var wrap = document.createElement('nav');
     wrap.className = 'lang-switch';
-    wrap.setAttribute('aria-label', lang === 'it' ? 'Lingua' : 'Language');
+    wrap.setAttribute('aria-label', switcherLabel());
     wrap.innerHTML =
       '<a class="lang-switch-opt" href="' + enPath() + '" hreflang="en" lang="en">EN</a>' +
-      '<a class="lang-switch-opt" href="' + itPath() + '" hreflang="it" lang="it">IT</a>';
+      '<a class="lang-switch-opt" href="' + itPath() + '" hreflang="it" lang="it">IT</a>' +
+      '<a class="lang-switch-opt" href="' + dePath() + '" hreflang="de" lang="de">DE</a>';
     var toggle = document.getElementById('nav-toggle');
     if (toggle) nav.insertBefore(wrap, toggle);
     else nav.appendChild(wrap);
@@ -163,7 +211,7 @@
   function localeUrl(code) {
     var script = document.querySelector('script[src*="i18n.js"]');
     var base = script ? script.src.replace(/i18n\.js.*$/, '') : 'js/';
-    return base + 'locales/' + code + '.json?v=6';
+    return base + 'locales/' + code + '.json?v=7';
   }
 
   function load(code) {
@@ -189,15 +237,20 @@
 
   lang = detect();
 
-  if (lang === 'it' && !onItalianPath() && !isBot()) {
-    try { localStorage.setItem(STORAGE, 'it'); } catch (e) {}
-    document.documentElement.classList.add('i18n-pending');
-    location.replace(itPath());
-    return;
+  // Redirect to locale path when needed (DE only inside /preview/)
+  if (lang !== 'en' && !onLocalePath() && !isBot()) {
+    if (lang === 'de' && !inPreview()) {
+      lang = 'en';
+    } else {
+      try { localStorage.setItem(STORAGE, lang); } catch (e) {}
+      document.documentElement.classList.add('i18n-pending');
+      location.replace(localePath(lang));
+      return;
+    }
   }
 
   document.documentElement.lang = lang;
-  if (lang === 'it') document.documentElement.classList.add('i18n-pending');
+  if (lang !== 'en') document.documentElement.classList.add('i18n-pending');
 
   window.RIS = {
     get lang() { return lang; },

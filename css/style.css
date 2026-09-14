@@ -2207,6 +2207,47 @@ body[data-page="about"] .vision-quote blockquote {
   color: var(--gold-dark);
 }
 
+.services-pkg-discover {
+  margin: 28px 0 24px;
+  width: 100%;
+}
+
+.services-pkg-discover .mf-label {
+  margin-bottom: 12px;
+}
+
+body[data-page="services"] .section-dark .pkg-dd {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+body[data-page="services"] .section-dark .pkg-dd-summary {
+  color: #f5efe4;
+}
+
+body[data-page="services"] .section-dark .pkg-dd-hint,
+body[data-page="services"] .section-dark .pkg-dd-links-soon em {
+  color: rgba(245, 239, 228, 0.55);
+}
+
+body[data-page="services"] .section-dark .pkg-dd-body {
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+body[data-page="services"] .section-dark .pkg-dd-lead,
+body[data-page="services"] .section-dark .pkg-dd-links a,
+body[data-page="services"] .section-dark .pkg-dd-links-soon li {
+  color: rgba(245, 239, 228, 0.9);
+}
+
+body[data-page="services"] .section-dark .pkg-dd-links a {
+  border-bottom-color: var(--gold, #b8956a);
+}
+
+body[data-page="services"] .section-dark .pkg-dd-links-soon li {
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
 /* Relocation packages (flyer page) */
 .pkg-discover {
   margin: 8px 0 40px;

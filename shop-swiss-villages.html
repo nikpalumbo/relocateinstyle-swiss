@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Order the Michelin map and Swiss village guidebooks from Relocateinstyle SA. Delivery in Switzerland or pick-up in Lugano.">
+  <meta name="description" content="Order the Michelin map and Swiss village guidebooks from Relocateinstyle SA. Pick-up in Lugano or delivery price to be confirmed.">
   <title>Order map &amp; books | Relocateinstyle SA</title>
-  <link rel="stylesheet" href="css/style.css?v=79">
+  <link rel="stylesheet" href="css/style.css?v=80">
   <link rel="icon" href="assets/images/logo.png" type="image/png">
   <link rel="canonical" href="https://relocateinstyle.swiss/shop-swiss-villages.html">
   <link rel="alternate" hreflang="en" href="https://relocateinstyle.swiss/shop-swiss-villages.html">
   <link rel="alternate" hreflang="it" href="https://relocateinstyle.swiss/it/shop-swiss-villages.html">
   <link rel="alternate" hreflang="x-default" href="https://relocateinstyle.swiss/shop-swiss-villages.html">
-  <script src="js/i18n.js?v=3"></script>
+  <script src="js/i18n.js?v=4"></script>
 </head>
 <body data-page="shop">
 
@@ -55,7 +55,7 @@
         </header>
 
         <div class="mf-hero">
-          <p class="mf-eyebrow" data-i18n="shop.eyebrow">Order for delivery in Switzerland or collect in Lugano</p>
+          <p class="mf-eyebrow" data-i18n="shop.eyebrow">Pay by bank transfer · Pick-up in office · Delivery price TBD</p>
           <div class="mf-hero-flex">
             <div class="mf-hero-text">
               <div class="mf-questions">
@@ -93,7 +93,7 @@
               <p class="shop-price">CHF 30.–</p>
             </div>
           </div>
-          <p class="shop-shipping-note" data-i18n-html="shop.shippingHtml">Postal delivery in Switzerland only: <strong>CHF 2.50</strong> · or free pick-up at our Lugano office.</p>
+          <p class="shop-shipping-note" data-i18n-html="shop.shippingHtml">Pay by bank transfer to our account · Pick-up at our Lugano office · Delivery price to be confirmed.</p>
         </div>
 
         <div class="mf-answer">
@@ -146,15 +146,15 @@
           <fieldset class="shop-delivery">
             <legend data-i18n="shop.delivery">Delivery</legend>
             <label class="membership-check">
-              <input type="radio" name="delivery" value="post" data-ship="2.5" checked>
-              <span data-i18n-html="shop.postHtml">Postal delivery in Switzerland — <strong>CHF 2.50</strong></span>
-            </label>
-            <label class="membership-check">
-              <input type="radio" name="delivery" value="pickup" data-ship="0">
+              <input type="radio" name="delivery" value="pickup" data-ship="0" checked>
               <span data-i18n-html="shop.pickupHtml">Pick-up at our Lugano office — free</span>
             </label>
+            <label class="membership-check">
+              <input type="radio" name="delivery" value="delivery" data-ship="0">
+              <span data-i18n-html="shop.postHtml">Delivery — price to be confirmed</span>
+            </label>
           </fieldset>
-          <p class="shop-running-total"><span data-i18n="shop.running">Order total: </span><strong id="shop-total">CHF 2.50</strong></p>
+          <p class="shop-running-total"><span data-i18n="shop.running">Order total: </span><strong id="shop-total">CHF 0.–</strong></p>
         </div>
 
         <div class="membership-modal-pay">
@@ -173,7 +173,7 @@
             </div>
             <div>
               <dt data-i18n="membership.amount">Amount</dt>
-              <dd id="shop-amount">CHF 2.50</dd>
+              <dd id="shop-amount">CHF 0.–</dd>
             </div>
             <div>
               <dt data-i18n="membership.reference">Reference</dt>
@@ -187,11 +187,11 @@
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_template" value="table">
           <input type="hidden" name="_next" value="https://relocateinstyle.swiss/shop-swiss-villages.html?ordered=1">
-          <input type="hidden" name="_autoresponse" value="Thank you for your Swiss villages shop order. Please transfer the amount shown on the order page to IBAN CH44 0076 40E7 1615 0100 8, beneficiary Relocateinstyle SA, reference: Swiss villages shop + your full name. Delivery in Switzerland is CHF 2.50, or free pick-up in Lugano. We confirm once payment is received.">
+          <input type="hidden" name="_autoresponse" value="Thank you for your Swiss villages shop order. Please transfer the amount shown on the order page to IBAN CH44 0076 40E7 1615 0100 8, beneficiary Relocateinstyle SA, reference: Swiss villages shop + your full name. Pick-up at our Lugano office is free; delivery price to be confirmed. We confirm once payment is received.">
           <input type="hidden" name="iban" value="CH44007640E7161501008">
           <input type="hidden" name="order_items" id="shop-order-items" value="">
           <input type="hidden" name="order_total" id="shop-order-total" value="">
-          <input type="hidden" name="delivery_method" id="shop-delivery-method" value="post">
+          <input type="hidden" name="delivery_method" id="shop-delivery-method" value="pickup">
           <div class="form-fields" id="shop-fields">
             <div class="form-field">
               <input type="text" id="s-name" name="name" required placeholder=" ">
@@ -207,7 +207,7 @@
             </div>
             <div class="form-field">
               <textarea id="s-address" name="shipping_address" rows="3" placeholder=" "></textarea>
-              <label for="s-address" data-i18n="shop.address">Swiss delivery address (if post)</label>
+              <label for="s-address" data-i18n="shop.address">Delivery address (if delivery)</label>
             </div>
             <label class="membership-check">
               <input type="checkbox" name="payment_confirmed" value="yes" required>
@@ -270,16 +270,14 @@
           }
         });
         var ship = 0;
-        var method = 'post';
+        var method = 'pickup';
         delivery.forEach(function (el) {
           if (el.checked) {
-            ship = parseFloat(el.getAttribute('data-ship'), 10);
+            ship = parseFloat(el.getAttribute('data-ship'), 10) || 0;
             method = el.value;
           }
         });
-        if (selected.length === 0) {
-          total = ship;
-        } else {
+        if (selected.length) {
           total += ship;
         }
         var txt = money(total);
@@ -293,7 +291,7 @@
         document.getElementById('shop-order-total').value = txt;
         document.getElementById('shop-delivery-method').value = method === 'pickup'
           ? ((window.RIS && RIS.t('shop.pickupMethod')) || 'Pick-up Lugano office')
-          : ((window.RIS && RIS.t('shop.postMethod')) || 'Postal CH CHF 2.50');
+          : ((window.RIS && RIS.t('shop.postMethod')) || 'Delivery — price to be confirmed');
         updateQr(total, selected);
       }
 

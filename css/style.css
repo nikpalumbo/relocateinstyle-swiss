@@ -3455,6 +3455,26 @@ body.membership-modal-open {
   display: block;
 }
 
+.lifestyle-sv-cover-product {
+  height: 72px;
+  background: #f3f3f3;
+}
+
+.lifestyle-sv-cover-product img {
+  height: 72px;
+  object-fit: contain;
+  object-position: center;
+  background: #f3f3f3;
+}
+
+.lifestyle-doc-price {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.85em;
+  font-weight: 500;
+  color: var(--gold-dark, #8a6f4a);
+}
+
 /* Photo gallery lightbox */
 body.gallery-modal-open {
   overflow: hidden;

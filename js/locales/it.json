@@ -141,7 +141,7 @@
     "externalTitle": "Business developer autorizzati",
     "roleBd": "Business Developer",
     "ambassadorLabel": "Brand ambassador",
-    "ambassadorName": "Dr. Arch. Luca Clavarino, FRICS",
+    "ambassadorName": "Dr. Arch. Luca Clavarino, MSc(LA), FRICS",
     "ambassadorRole": "Consulente Real Estate & Infrastructure",
     "ambassadorBio": "Con sede a Lugano, il Dr. Arch. Luca Clavarino porta oltre trent’anni di esperienza nella gestione di grandi patrimoni immobiliari, nella pianificazione urbana e nel project management di programmi di sviluppo e infrastrutture. Laureato al Politecnico di Milano e Borsista Fulbright con un Master in Landscape Architecture presso la University of Oregon, ha ricoperto ruoli apicali in banche, architettura e strategy in Italia, a Londra e in Svizzera. È strategic advisor per iniziative infrastrutturali — tra cui il corridoio Reno–Alpi a sud di Lugano — e ha promosso la collaborazione tra Genova e Lugano.",
     "honoursTitle": "Onorificenze",
@@ -159,7 +159,10 @@
     "why6": "Discrezione, sicurezza e privacy",
     "partnersCta": "I nostri partner →",
     "ctaTitle": "Mettiamoci in contatto",
-    "ctaLead": "Riservato, personale e senza impegno."
+    "ctaLead": "Riservato, personale e senza impegno.",
+    "honour5": "Membro dell’Advisory Board, EGTC Rhine-Alpine Corridor",
+    "honour6": "Co-fondatore, ProGottardo Ferrovia d’Europa",
+    "honour7": "Ambasciatore di Genova in the World / AGW"
   },
   "services": {
     "eyebrow": "Cosa facciamo",

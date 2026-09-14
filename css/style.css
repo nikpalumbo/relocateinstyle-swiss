@@ -1716,6 +1716,104 @@ body[data-page="about"] .vision-quote blockquote {
   margin-bottom: 12px;
 }
 
+.preview-banner {
+  position: sticky;
+  top: 0;
+  z-index: 1200;
+  background: #1c160c;
+  color: #f5efe4;
+  text-align: center;
+  padding: 10px 16px;
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+}
+
+.preview-banner a {
+  color: var(--gold, #b8956a);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.ambassador-block {
+  display: grid;
+  grid-template-columns: minmax(200px, 280px) 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.ambassador-photo {
+  background: #0d0b09;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.ambassador-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  filter: contrast(1.05);
+}
+
+.ambassador-role {
+  margin: 8px 0 20px;
+  color: var(--gold, #b8956a);
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.ambassador-honours {
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.ambassador-honours h3 {
+  margin: 0 0 16px;
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold, #b8956a);
+  font-weight: 500;
+}
+
+.honours-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.honours-list li {
+  position: relative;
+  padding: 14px 18px 14px 40px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  line-height: 1.45;
+}
+
+.honours-list li::before {
+  content: "◈";
+  position: absolute;
+  left: 16px;
+  top: 14px;
+  color: var(--gold, #b8956a);
+  font-size: 0.75rem;
+}
+
+@media (max-width: 800px) {
+  .ambassador-block {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .ambassador-photo {
+    max-width: 280px;
+  }
+}
+
 .team-card-external .team-langs {
   margin-bottom: 0;
 }

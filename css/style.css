@@ -2208,11 +2208,110 @@ body[data-page="about"] .vision-quote blockquote {
 }
 
 /* Relocation packages (flyer page) */
+.pkg-discover {
+  margin: 8px 0 40px;
+  display: grid;
+  gap: 12px;
+}
+
+.pkg-dd {
+  border: 1px solid var(--border, rgba(28, 22, 12, 0.12));
+  background: #fff;
+}
+
+.pkg-dd-summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 20px;
+  padding: 18px 22px;
+  font-family: inherit;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--ink, #1c160c);
+}
+
+.pkg-dd-summary::-webkit-details-marker {
+  display: none;
+}
+
+.pkg-dd-summary::after {
+  content: "+";
+  margin-left: auto;
+  color: var(--gold, #b8956a);
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.pkg-dd[open] .pkg-dd-summary::after {
+  content: "–";
+}
+
+.pkg-dd-hint {
+  flex: 1 1 auto;
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(28, 22, 12, 0.55);
+}
+
+.pkg-dd-body {
+  padding: 0 22px 22px;
+  border-top: 1px solid var(--border, rgba(28, 22, 12, 0.08));
+}
+
+.pkg-dd-lead {
+  margin: 16px 0 14px;
+  max-width: 54ch;
+}
+
+.pkg-dd-links {
+  list-style: none;
+  margin: 0 0 18px;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.pkg-dd-links a {
+  color: var(--ink, #1c160c);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold, #b8956a);
+  padding-bottom: 1px;
+}
+
+.pkg-dd-links a:hover {
+  color: var(--gold-dark, #8a6f4a);
+}
+
+.pkg-dd-links-soon li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 16px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(28, 22, 12, 0.06);
+}
+
+.pkg-dd-links-soon em {
+  font-style: normal;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(28, 22, 12, 0.45);
+}
+
 .pkg-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
   margin: 8px 0 28px;
+  scroll-margin-top: 100px;
 }
 
 .pkg-card {
@@ -2223,6 +2322,7 @@ body[data-page="about"] .vision-quote blockquote {
   display: flex;
   flex-direction: column;
   min-width: 0;
+  scroll-margin-top: 110px;
 }
 
 .pkg-card-featured {

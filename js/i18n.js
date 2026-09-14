@@ -163,7 +163,7 @@
   function localeUrl(code) {
     var script = document.querySelector('script[src*="i18n.js"]');
     var base = script ? script.src.replace(/i18n\.js.*$/, '') : 'js/';
-    return base + 'locales/' + code + '.json?v=5';
+    return base + 'locales/' + code + '.json?v=6';
   }
 
   function load(code) {

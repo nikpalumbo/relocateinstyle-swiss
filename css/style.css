@@ -1747,12 +1747,12 @@ body[data-page="about"] .vision-quote blockquote {
 }
 
 .ambassador-portrait {
-  width: 112px;
-  height: 112px;
+  width: 120px;
+  height: 120px;
   object-fit: cover;
   object-position: center top;
   border: 1px solid rgba(44, 36, 22, 0.12);
-  flex: 0 0 112px;
+  flex: 0 0 120px;
 }
 
 .ambassador-kicker {
@@ -1779,9 +1779,14 @@ body[data-page="about"] .vision-quote blockquote {
   letter-spacing: 0.04em;
 }
 
+.ambassador-bio-wrap {
+  max-width: 68ch;
+  display: grid;
+  gap: 16px;
+}
+
 .ambassador-bio {
   margin: 0;
-  max-width: 68ch;
   line-height: 1.75;
   color: #2c2416;
   font-size: 1.02rem;
@@ -1832,33 +1837,32 @@ body[data-page="about"] .vision-quote blockquote {
   margin: 40px 0 0;
   padding: 22px;
   display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 22px;
-  align-items: stretch;
+  gap: 20px;
   background: #fff;
   border: 1px solid rgba(44, 36, 22, 0.12);
+}
+
+.ambassador-quote-stack {
+  grid-template-columns: 1fr;
 }
 
 .ambassador-quote-photos {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 8px;
+  gap: 10px;
 }
 
 .ambassador-quote-photos img {
   display: block;
   width: 100%;
-  height: 160px;
+  height: 180px;
   object-fit: cover;
 }
 
 .ambassador-quote blockquote {
   margin: 0;
-  padding: 0 0 0 20px;
+  padding: 4px 0 0 20px;
   border-left: 2px solid var(--gold);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 .ambassador-quote blockquote p {
@@ -1891,7 +1895,6 @@ body[data-page="about"] .vision-quote blockquote {
   }
 
   .ambassador-quote {
-    grid-template-columns: 1fr;
     padding: 16px;
   }
 

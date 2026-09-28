@@ -1736,13 +1736,13 @@ body[data-page="about"] .vision-quote blockquote {
 
 .ambassador-block {
   display: grid;
-  grid-template-columns: 140px 1fr;
+  grid-template-columns: 96px 1fr;
   gap: 28px 36px;
   align-items: start;
 }
 
 .ambassador-photo {
-  width: 140px;
+  width: 96px;
   background: #f0ebe3;
   border: 1px solid rgba(44, 36, 22, 0.1);
   overflow: hidden;
@@ -1863,10 +1863,10 @@ body[data-page="about"] .vision-quote blockquote {
 .ambassador-quote-text p {
   margin: 0;
   font-family: var(--font-serif);
-  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
-  line-height: 1.65;
+  font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+  line-height: 1.7;
   font-style: italic;
-  color: var(--text);
+  color: #2c2416 !important;
 }
 
 .ambassador-quote-attr {
@@ -1885,8 +1885,8 @@ body[data-page="about"] .vision-quote blockquote {
   }
 
   .ambassador-photo {
-    width: 112px;
-    max-width: 112px;
+    width: 96px;
+    max-width: 96px;
   }
 
   .ambassador-quote {

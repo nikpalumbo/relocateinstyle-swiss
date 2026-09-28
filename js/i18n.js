@@ -87,12 +87,7 @@
   }
 
   function dePath() {
-    // German site lives only under /preview/de/
-    var file = pageFile();
-    if (inPreview()) {
-      return localePath('de');
-    }
-    return (file === 'index.html' ? '/preview/de/' : '/preview/de/' + file) + searchNoLang() + location.hash;
+    return localePath('de');
   }
 
   function isBot() {
@@ -104,14 +99,12 @@
     if (fromPath) return fromPath;
     try {
       var saved = (localStorage.getItem(STORAGE) || '').toLowerCase();
-      if (saved === 'en' || saved === 'it') return saved;
-      // German only under preview — live has no /de/
-      if (saved === 'de' && inPreview()) return 'de';
+      if (saved === 'en' || saved === 'it' || saved === 'de') return saved;
     } catch (e) {}
     var nav = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase();
     if (!isBot()) {
       if (nav.indexOf('it') === 0) return 'it';
-      if (nav.indexOf('de') === 0 && inPreview()) return 'de';
+      if (nav.indexOf('de') === 0) return 'de';
     }
     return 'en';
   }
@@ -211,7 +204,7 @@
   function localeUrl(code) {
     var script = document.querySelector('script[src*="i18n.js"]');
     var base = script ? script.src.replace(/i18n\.js.*$/, '') : 'js/';
-    return base + 'locales/' + code + '.json?v=17';
+    return base + 'locales/' + code + '.json?v=18';
   }
 
   function load(code) {
@@ -239,14 +232,10 @@
 
   // Redirect to locale path when needed (DE only inside /preview/)
   if (lang !== 'en' && !onLocalePath() && !isBot()) {
-    if (lang === 'de' && !inPreview()) {
-      lang = 'en';
-    } else {
-      try { localStorage.setItem(STORAGE, lang); } catch (e) {}
-      document.documentElement.classList.add('i18n-pending');
-      location.replace(localePath(lang));
-      return;
-    }
+    try { localStorage.setItem(STORAGE, lang); } catch (e) {}
+    document.documentElement.classList.add('i18n-pending');
+    location.replace(localePath(lang));
+    return;
   }
 
   document.documentElement.lang = lang;

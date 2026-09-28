@@ -5,20 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Relocation, Real Estate e Family Office in Ticino, Relocateinstyle SA, Lugano.">
   <title>Servizi | Relocateinstyle SA</title>
-  <link rel="stylesheet" href="../css/style.css?v=84">
+  <link rel="stylesheet" href="../css/style.css?v=91">
   <link rel="icon" href="../assets/images/logo.png" type="image/png">
   <link rel="canonical" href="https://relocateinstyle.swiss/it/services.html">
   <link rel="alternate" hreflang="en" href="https://relocateinstyle.swiss/services.html">
   <link rel="alternate" hreflang="it" href="https://relocateinstyle.swiss/it/services.html">
+  <link rel="alternate" hreflang="de" href="https://relocateinstyle.swiss/de/services.html">
   <link rel="alternate" hreflang="x-default" href="https://relocateinstyle.swiss/services.html">
-  <script src="../js/i18n.js?v=7"></script>
+  <script src="../js/i18n.js?v=10"></script>
 </head>
 <body data-page="services">
 
   <div class="cursor-dot" id="cursor-dot"></div>
   <div class="cursor-ring" id="cursor-ring"></div>
   <div class="scroll-progress" id="scroll-progress"></div>
-
   <header class="nav scrolled" id="nav">
     <a href="index.html" class="nav-logo"><img src="../assets/images/logo.png" alt="Relocateinstyle"></a>
     <nav class="nav-links" id="nav-links">
@@ -30,11 +30,10 @@
       <a href="membership.html" data-page="membership" data-i18n="nav.membership">Membership</a>
       <a href="contact.html" data-page="contact" class="nav-cta" data-i18n="nav.contact">Contatti</a>
     </nav>
-    <nav class="lang-switch" aria-label="Lingua">
+            <nav class="lang-switch" aria-label="Lingua">
       <a class="lang-switch-opt" href="../services.html" hreflang="en" lang="en">EN</a>
-      <a class="lang-switch-opt is-active" href="services.html" hreflang="it" lang="it">IT</a>
-    
-      <a class="lang-switch-opt" href="../preview/de/services.html" hreflang="de" lang="de">DE</a>
+      <a class="lang-switch-opt is-active" href="services.html" hreflang="it" lang="it" aria-current="true">IT</a>
+      <a class="lang-switch-opt" href="../de/services.html" hreflang="de" lang="de">DE</a>
     </nav>
     <button class="nav-toggle" id="nav-toggle" aria-label="Menu" data-i18n-aria="nav.menu"><span></span><span></span></button>
   </header>
@@ -74,7 +73,54 @@
             <li data-i18n="services.rel5">Famiglia e integrazione, ricerca scuole, orientamento e supporto alla comunità</li>
             <li data-i18n="services.rel6">Lifestyle e concierge, eventi, personale domestico, riferimenti medici e help desk</li>
           </ul>
-          <a href="packages.html" class="btn btn-ghost" data-i18n="services.packagesCta">Scopri i pacchetti →</a>
+
+          <div class="pkg-discover services-pkg-discover">
+            <p class="mf-label" data-i18n="services.discoverLabel">Pacchetti per categoria</p>
+
+            <details class="pkg-dd" open>
+              <summary class="pkg-dd-summary">
+                <span data-i18n="services.catExplore">Families packages</span>
+                <span class="pkg-dd-hint" data-i18n="services.catExploreHint">Private clients · Inbound</span>
+              </summary>
+              <div class="pkg-dd-body">
+                <p class="body-text pkg-dd-lead" data-i18n="services.catExploreLead">Pacchetti inbound strutturati per clienti privati che si trasferiscono in Ticino.</p>
+                <a href="packages.html" class="btn btn-ghost btn-sm" data-i18n="services.packagesCta">Vedi i pacchetti →</a>
+              </div>
+            </details>
+
+            <details class="pkg-dd">
+              <summary class="pkg-dd-summary">
+                <span data-i18n="services.catAlacarte">À la carte</span>
+                <span class="pkg-dd-hint" data-i18n="services.catAlacarteHint">Componete il vostro supporto</span>
+              </summary>
+              <div class="pkg-dd-body">
+                <p class="body-text pkg-dd-lead" data-i18n="services.catAlacarteLead">Selezionate servizi singoli invece di un pacchetto completo. Le schede dettagliate saranno aggiunte a breve.</p>
+                <ul class="pkg-dd-links pkg-dd-links-soon">
+                  <li><span data-i18n="services.alacarte1">Immigrazione e permessi</span> <em data-i18n="services.docSoon">Doc in arrivo</em></li>
+                  <li><span data-i18n="services.alacarte2">Housing e home finding</span> <em data-i18n="services.docSoon">Doc in arrivo</em></li>
+                  <li><span data-i18n="services.alacarte3">Settling-in e registrazioni</span> <em data-i18n="services.docSoon">Doc in arrivo</em></li>
+                  <li><span data-i18n="services.alacarte4">Lifestyle e concierge</span> <em data-i18n="services.docSoon">Doc in arrivo</em></li>
+                </ul>
+                <a href="contact.html" class="btn btn-ghost btn-sm" data-i18n="services.enquireAlacarte">Richiedi à la carte</a>
+              </div>
+            </details>
+
+            <details class="pkg-dd">
+              <summary class="pkg-dd-summary">
+                <span data-i18n="services.catCorporate">Corporate relocation</span>
+                <span class="pkg-dd-hint" data-i18n="services.catCorporateHint">Scuole · Docenti · Executives</span>
+              </summary>
+              <div class="pkg-dd-body">
+                <p class="body-text pkg-dd-lead" data-i18n="services.catCorporateLead">Programmi per organizzazioni che trasferiscono staff, docenti ed executive in Svizzera.</p>
+                <ul class="pkg-dd-links pkg-dd-links-soon">
+                  <li><span data-i18n="services.corpSchool">School / teachers services</span> <em data-i18n="services.docSoon">Doc in arrivo</em></li>
+                  <li><span data-i18n="services.corpExecutive">Executives</span> <em data-i18n="services.docSoon">Doc in arrivo</em></li>
+                </ul>
+                <a href="contact.html" class="btn btn-ghost btn-sm" data-i18n="services.enquireCorporate">Richiedi corporate</a>
+              </div>
+            </details>
+          </div>
+
           <a href="contact.html" class="btn btn-primary" data-i18n="services.relCta">Inizia la relocation</a>
         </div>
         <div class="split-image reveal">

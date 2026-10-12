@@ -47,6 +47,10 @@
     "shop-food": {
       "title": "Ordina il gin | Relocateinstyle SA",
       "description": "Ordina il Cilento Wild Coast Crafted Gin da Relocateinstyle SA. CHF 32.–, pagamento con bonifico, ritiro in ufficio a Lugano, prezzo di consegna da stabilire."
+    },
+    "shop-oil": {
+      "title": "Prenota l’olio Colleargento | Relocateinstyle SA",
+      "description": "Prenotate l’olio extra vergine Colleargento, Umbria. Bottiglia CHF 28.–, tanica CHF 140.–. Bonifico, ritiro a Lugano, consegna tra novembre e dicembre."
     }
   },
   "nav": {
@@ -300,7 +304,18 @@
     "closeGallery": "Chiudi gallery",
     "brochureEn": "Brochure EN",
     "brochureIt": "Brochure IT",
-    "cilentoBrochures": "Brochure Cilento Wild Coast"
+    "cilentoBrochures": "Brochure Cilento Wild Coast",
+    "navOil": "Olio d’oliva",
+    "oilTitle": "Colleargento,<br><em>olio extra vergine</em>",
+    "oilLead": "Una piccola tenuta ricoperta di ulivi sui Colli Martani, in Umbria. Produzione familiare di 500 litri l’anno: prenotate la vostra quota prima della spremitura.",
+    "oil1": "Bottiglia 0,75 L · CHF 28.–",
+    "oil2": "Tanica 5 L · CHF 140.–",
+    "oil3": "Raccolta attorno al 20 ottobre · Consegna tra novembre e dicembre",
+    "oil4": "Pagamento con bonifico · Ritiro in ufficio a Lugano · Prezzo di consegna da stabilire",
+    "oilBottleMeta": "Extra vergine · 0,75 L",
+    "oilCanMeta": "Extra vergine · 5 L",
+    "orderOilCta": "Prenota il tuo olio",
+    "oilFlyer": "Newsletter · Ottobre 2026"
   },
   "partners": {
     "label": "Con chi lavoriamo",
@@ -547,5 +562,23 @@
     "optTravel": "Viaggi e biglietteria",
     "optOther": "Altro",
     "message": "Date, destinazioni e preferenze"
+  },
+  "shopOil": {
+    "pill": "Olio extra vergine",
+    "validity": "Colleargento · Umbria · 2026",
+    "tagline": "Colleargento",
+    "eyebrow": "Prenotazione · Bonifico · Ritiro in ufficio · Consegna da stabilire",
+    "q1": "Olio",
+    "q2": "CHF 28",
+    "q3": "Umbria",
+    "hero": "Prenotate l’olio extra vergine Colleargento prima della spremitura. Bottiglia 0,75 L a CHF 28.–, tanica 5 L a CHF 140.–. Pagate con bonifico (QR svizzero), poi inviateci i dettagli. Ritiro in ufficio a Lugano; consegna tra novembre e dicembre, prezzo da stabilire.",
+    "what": "Cosa potete prenotare",
+    "cta": "Prenota ora",
+    "modalTitle": "Prenota l’olio",
+    "modalLead": "Indicate le quantità e la consegna, pagate con QR svizzero / bonifico, poi inviate i vostri dati.",
+    "refValue": "Olio Colleargento · il vostro nome e cognome",
+    "itemBottle": "Bottiglia Colleargento 0,75 L — CHF 28.–",
+    "itemCan": "Tanica Colleargento 5 L — CHF 140.–",
+    "qty": "Quantità"
   }
 }

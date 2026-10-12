@@ -2556,6 +2556,10 @@ body[data-page="services"] .services-pkg-discover .pkg-dd-summary::after {
   margin: 16px 0 18px;
 }
 
+.shop-price-grid-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .shop-price-card {
   background: rgba(255, 255, 255, 0.55);
   border: 1px solid rgba(90, 64, 16, 0.14);
@@ -2605,6 +2609,23 @@ body[data-page="services"] .services-pkg-discover .pkg-dd-summary::after {
   flex-direction: column;
   gap: 10px;
   margin-bottom: 20px;
+}
+
+.shop-qty-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.shop-qty-row input[type="number"] {
+  width: 72px;
+  flex: 0 0 72px;
+  padding: 8px 10px;
+  border: 1px solid rgba(44, 36, 22, 0.2);
+  background: #fff;
+  color: #2c2416;
+  font-size: 1rem;
 }
 
 .shop-delivery {

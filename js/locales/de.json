@@ -47,6 +47,10 @@
     "shop-food": {
       "title": "Gin bestellen | Relocateinstyle SA",
       "description": "Bestellen Sie Cilento Wild Coast Crafted Gin bei Relocateinstyle SA. CHF 32.–, Banküberweisung, Abholung in Lugano, Lieferpreis auf Anfrage."
+    },
+    "shop-oil": {
+      "title": "Colleargento-Öl reservieren | Relocateinstyle SA",
+      "description": "Reservieren Sie Colleargento natives Olivenöl extra aus Umbrien. Flasche CHF 28.–, Kanister CHF 140.–. Überweisung, Abholung in Lugano, Lieferung November–Dezember."
     }
   },
   "nav": {
@@ -300,7 +304,18 @@
     "closeGallery": "Galerie schliessen",
     "brochureEn": "Broschüre EN",
     "brochureIt": "Broschüre IT",
-    "cilentoBrochures": "Broschüren Cilento Wild Coast"
+    "cilentoBrochures": "Broschüren Cilento Wild Coast",
+    "navOil": "Olivenöl",
+    "oilTitle": "Colleargento,<br><em>natives Olivenöl extra</em>",
+    "oilLead": "Ein kleines, von Olivenbäumen bedecktes Gut in den Colli Martani, Umbrien. Familienproduktion von 500 Litern im Jahr: reservieren Sie Ihren Anteil vor der Pressung.",
+    "oil1": "Flasche 0,75 L · CHF 28.–",
+    "oil2": "Kanister 5 L · CHF 140.–",
+    "oil3": "Ernte um den 20. Oktober · Lieferung zwischen November und Dezember",
+    "oil4": "Zahlung per Banküberweisung · Abholung im Büro in Lugano · Lieferpreis auf Anfrage",
+    "oilBottleMeta": "Natives extra · 0,75 L",
+    "oilCanMeta": "Natives extra · 5 L",
+    "orderOilCta": "Öl reservieren",
+    "oilFlyer": "Newsletter · Oktober 2026"
   },
   "partners": {
     "label": "Mit wem wir arbeiten",
@@ -547,5 +562,23 @@
     "optTravel": "Reisen und Ticketing",
     "optOther": "Anderes",
     "message": "Daten, Destinationen und Präferenzen"
+  },
+  "shopOil": {
+    "pill": "Natives Olivenöl extra",
+    "validity": "Colleargento · Umbrien · 2026",
+    "tagline": "Colleargento",
+    "eyebrow": "Reservierung · Überweisung · Abholung im Büro · Lieferung auf Anfrage",
+    "q1": "Öl",
+    "q2": "CHF 28",
+    "q3": "Umbrien",
+    "hero": "Reservieren Sie Colleargento natives Olivenöl extra vor der Pressung. Flasche 0,75 L zu CHF 28.–, Kanister 5 L zu CHF 140.–. Zahlen Sie per Banküberweisung (Schweizer QR) und senden Sie uns danach die Details. Abholung in Lugano; Lieferung November–Dezember, Preis auf Anfrage.",
+    "what": "Was Sie reservieren können",
+    "cta": "Jetzt reservieren",
+    "modalTitle": "Öl reservieren",
+    "modalLead": "Mengen und Zustellung wählen, per Schweizer QR / Überweisung zahlen, dann Ihre Daten senden.",
+    "refValue": "Öl Colleargento · Ihr Vor- und Nachname",
+    "itemBottle": "Flasche Colleargento 0,75 L — CHF 28.–",
+    "itemCan": "Kanister Colleargento 5 L — CHF 140.–",
+    "qty": "Menge"
   }
 }
